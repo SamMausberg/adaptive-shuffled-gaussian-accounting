@@ -19,7 +19,8 @@ def main():
     call(sys.executable,'poisson_account.py','1','2')
     call(sys.executable,'verify_checks.py')
     call(sys.executable,'collect_results.py')
-    keep={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in ROOT.iterdir() if p.is_file() and p.suffix in ['.py','.cpp','.json','.dat','.txt'] and p.name!='manifest.json'}
-    (ROOT/'manifest.json').write_text(json.dumps({'sha256':keep,'description':'Checksums of source and numerical certificate files. Rebuild with run_all.py for mathematical verification.'},indent=2))
+    files=[p for p in ROOT.rglob('*') if p.is_file() and p.suffix in ['.py','.cpp','.json','.dat','.txt','.md','.log'] and p.name!='manifest.json' and '__pycache__' not in p.parts]
+    keep=dict(sorted((p.relative_to(ROOT).as_posix(),hashlib.sha256(p.read_bytes()).hexdigest()) for p in files))
+    (ROOT/'manifest.json').write_text(json.dumps({'description':'Checksums detect file changes. Mathematical verification requires the proofs and a successful run_all.py reconstruction.','sha256':keep},indent=2))
     print('FULL REPRODUCTION PASSED; elapsed seconds',round(time.time()-t,3))
 if __name__=='__main__':main()
