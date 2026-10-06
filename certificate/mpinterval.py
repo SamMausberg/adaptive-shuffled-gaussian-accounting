@@ -70,8 +70,8 @@ class I:
         if isinstance(x,I):self.a=x.a;self.b=x.b;return
         if isinstance(x,Num):self.a=x;self.b=x;return
         f=F(x);na=Num(f.numerator,DOWN);nb=Num(f.numerator,UP);da=Num(f.denominator,DOWN);db=Num(f.denominator,UP)
-        # Integers used by the experiments fit precision; support any larger
-        # integer as well through conservative denominator choices.
+        # Integers in the experiments fit the working precision. Larger ones are
+        # still enclosed: each rounding direction is chosen to widen the quotient.
         if f>=0:self.a=op('div',na,db,r=DOWN);self.b=op('div',nb,da,r=UP)
         else:self.a=op('div',na,da,r=DOWN);self.b=op('div',nb,db,r=UP)
     @classmethod

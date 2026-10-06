@@ -4,8 +4,8 @@
 Examples:
   python account.py --sampler shuffle --sigma 1 --epochs 5 --delta 1e-8
   python account.py --sampler poisson --sigma 2 --epochs 5 --delta 1e-8
-Run run_all.py to reconstruct the profile certificates rather than just recomposing
-the supplied certified inputs. Queries may adapt within and between epochs.
+This script recomposes the supplied certified inputs; run_all.py reconstructs the
+profile certificates themselves. Queries may adapt within and between epochs.
 """
 from pathlib import Path
 from fractions import Fraction as F

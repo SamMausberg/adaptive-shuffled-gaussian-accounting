@@ -1,9 +1,9 @@
 """Certified pessimistic accounting for matched Poisson subsampling.
 
-Each step has P=(1-q)N(0,sigma^2)+qN(1,sigma^2), Q=N(0,sigma^2).
-On each likelihood-ratio bin, replace the Q-law by its mean-preserving endpoint
-spread. This dominates all convex tests of the likelihood ratio, so its product
-is a valid upper accountant. The omitted high tail is revealed perfectly.
+Each step has A=(1-q)N(0,sigma^2)+qN(1,sigma^2), B=N(0,sigma^2).
+On each likelihood-ratio bin, replace the B-law by its mean-preserving endpoint
+spread. The spread dominates the bin law in convex order, so its product is a
+valid upper accountant. The omitted high tail is revealed perfectly.
 """
 from pathlib import Path
 from collections import defaultdict

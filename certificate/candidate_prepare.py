@@ -51,7 +51,7 @@ def prepare(sigma, M=None, bins=50, grid_den=400):
     path=ROOT/f'candidate_inputs_sigma{sigma}.json';path.write_text(json.dumps(out,separators=(',',':')))
     # Plain text is separately checked against JSON by the driver.
     lines=[f'{M} {XB} {PB} {len(gf)} {len(gr)} {len(fwd)} {len(rev)}']
-    # Only positive atoms retained consistently.
+    # The text file lists the same positive-mass atoms as the JSON.
     ff=out['kernel_forward'];rr=out['kernel_reverse']
     lines=[f'{M} {XB} {PB} {len(gf)} {len(gr)} {len(ff)} {len(rr)}']
     lines+=[' '.join(map(str,gf)),' '.join(map(str,gr))]

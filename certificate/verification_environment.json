@@ -14,5 +14,5 @@
   ],
   "full_reproduction_log_sha256": "48ebc1c19f86fdad288babda309f07b0ba66c85c279fb882d645f7c8a88b30b3",
   "full_reproduction_passed": true,
-  "review_status": "Internal mathematical and implementation checks; no independent mathematical review or proof-assistant verification."
+  "review_status": "Internal mathematical and implementation checks; parts of the mathematics are formalized in Lean (see ../formalization)."
 }

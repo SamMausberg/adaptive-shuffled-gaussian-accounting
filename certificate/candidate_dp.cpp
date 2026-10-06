@@ -1,7 +1,7 @@
-// Conditional allocation stop-loss and put upper bounds.
+// Upper bounds on the conditional call F_m and put J_m.
 // Compile: g++ -O2 -std=c++17 -frounding-math -ffp-contract=off
 //          -fno-fast-math candidate_dp.cpp -o candidate_dp
-// The proof uses only nonnegative arithmetic rounded toward +infinity.
+// The computation uses only nonnegative arithmetic rounded toward +infinity.
 #pragma STDC FENV_ACCESS ON
 #include <algorithm>
 #include <cassert>

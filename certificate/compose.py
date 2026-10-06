@@ -1,7 +1,7 @@
 """Build a rational dominating pair and certify its adaptive product accountant.
 
 The exact pair is the slope measure of the upper envelope of testing inequalities.
-Dyadic convolution arrays are lower submeasures, not approximations silently
+Dyadic convolution arrays are lower submeasures and are never
 renormalized to probability one. Every omitted atom is charged at infinite loss.
 """
 from fractions import Fraction as F
