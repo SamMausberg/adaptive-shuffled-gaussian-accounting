@@ -74,12 +74,29 @@ V.~Feldman and M.~Shenfeld, ``Efficient privacy loss accounting for subsampling
 \bibitem{takagi}
 S.~Takagi and S.~P. Liew, ``Analysis of shuffling beyond pure local
   differential privacy,'' \emph{Proceedings of the ACM on Management of Data},
-  vol.~4, no.~2, 2026, {PODS} 2026; arXiv:2601.19154v4.
+  vol.~4, no.~2, pp. 1--26, 2026, {PODS} 2026; arXiv:2601.19154v4.
 
 \bibitem{vandijk}
 M.~van Dijk and M.~B. Ertan, ``Trade-off functions for {DP-SGD} with
   subsampling based on random allocation: Tight upper and lower bounds,'' 2026,
   arXiv:2605.06259v3.
+
+\bibitem{ballsbins}
+L.~Chua, B.~Ghazi, C.~Harrison, P.~Kamath, R.~Kumar, E.~J. Leeman,
+  P.~Manurangsi, A.~Sinha, and C.~Zhang, ``Balls-and-bins sampling for
+  {DP-SGD},'' in \emph{International Conference on Artificial Intelligence and
+  Statistics}, ser. PMLR, vol. 258, 2025, pp. 946--954, arXiv:2412.16802.
+
+\bibitem{lebeda}
+C.~J. Lebeda, M.~Regehr, G.~Kamath, and T.~Steinke, ``Avoiding pitfalls for
+  privacy accounting of subsampled mechanisms under composition,'' in
+  \emph{IEEE Conference on Secure and Trustworthy Machine Learning}, 2025, pp.
+  996--1006, arXiv:2405.20769.
+
+\bibitem{annamalai}
+M.~S. M.~S. Annamalai, B.~Balle, J.~Hayes, and E.~De~Cristofaro, ``To shuffle
+  or not to shuffle: Auditing {DP-SGD} with shuffling,'' in \emph{Network and
+  Distributed System Security Symposium}, 2026, arXiv:2411.10614.
 
 \bibitem{mpfr}
 {The MPFR Team}, ``{GNU MPFR}: The multiple precision floating-point reliable
