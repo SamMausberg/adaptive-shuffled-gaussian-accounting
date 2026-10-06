@@ -1,6 +1,6 @@
 # Certified accounting for adaptive shuffled Gaussian training
 
-This archive accompanies Samuel Mausberg's working manuscript, “Certified Accounting for Adaptive Shuffled Gaussian Training.” It contains a reusable upper accountant and the complete computations behind the paper's lower/upper comparisons. The accepted table is `verified_results.json`; exact rational endpoints are encoded as `[numerator, denominator]` strings.
+This directory accompanies the paper "Certified Accounting for Adaptive Shuffled Gaussian Training." It contains a reusable upper accountant and the complete computations behind the paper's lower/upper comparisons. The accepted table is `verified_results.json`; exact rational endpoints are encoded as `[numerator, denominator]` strings.
 
 ## Scope
 
@@ -36,6 +36,8 @@ The full run also requires GNU C++ and NumPy/SciPy. The accepted environment use
 ```sh
 python run_all.py
 python verify_checks.py
+python check_paper_numbers.py
+python checks/run_coarse.py
 ```
 
 `run_all.py` compiles the conditional-convolution program with
@@ -46,7 +48,9 @@ g++ -O2 -std=c++17 -frounding-math -ffp-contract=off -fno-fast-math candidate_dp
 
 It rebuilds Gaussian-bin and endpoint-spread probabilities, checks that the C++ input is an exact serialization of its rational JSON, reconstructs both conditional positive-part recurrences, reevaluates threshold-specific clone probabilities, builds the exact rational dominating pair, and composes it. It then reconstructs the attainable lower benchmark and the continuous Poisson upper comparison. Finally it runs additional arithmetic checks, collects the tables, and writes a new checksum manifest. It creates a sibling `paper` directory containing the generated pgfplots tables if that directory does not already exist.
 
-A successful complete reconstruction is recorded in `full_reproduction.log`. The log's elapsed times and diagnostic floating-point displays are not the numerical privacy certificates; the JSON files contain the exact accepted inequalities. The supplied executable binary is intentionally omitted: the source and compilation command are included. Review the flags and rounding behavior before using a different compiler or architecture.
+`check_paper_numbers.py` compares every number quoted in the paper (abstract, Table I, figures and text) with the regenerated outputs using exact rationals. `checks/run_coarse.py` repeats the upper computation in a temporary directory with 25 normal bins per unit and threshold-grid denominator 200, and rewrites `checks/coarse_results_sigma*.json`.
+
+A successful complete reconstruction is recorded in `full_reproduction.log`. The reconstruction was repeated on a second machine with Python 3.12.3, NumPy 2.2.6, SciPy 1.16.2, g++ 13.3.0 and GNU MPFR 4.2.1. Every regenerated file was byte-identical to the supplied one except for the MPFR version string recorded in four input files; the full run took 142 seconds. The baseline and the coarse check were also rebuilt there with identical results. The log's elapsed times and diagnostic floating-point displays are not the numerical privacy certificates; the JSON files contain the exact accepted inequalities. The supplied executable binary is intentionally omitted: the source and compilation command are included. Review the flags and rounding behavior before using a different compiler or architecture.
 
 ## Proof and computation map
 
@@ -58,14 +62,14 @@ A successful complete reconstruction is recorded in `full_reproduction.log`. The
 
 `pair_maximum.py` uses exact Gaussian CDF differences for maximum bins at sigma*j/100, j=0,...,1200, including both infinite end bins. It computes lower and upper rounded-loss products with likelihood mesh ratio 2001/2000. Only its lower bounds transfer to the full continuous pair. `poisson_account.py` instead constructs an upper endpoint-spread experiment for the continuous one-step Poisson mechanism with mesh ratio 10001/10000, then composes 1000*E steps. Both use 72-bit retained masses and the exact integer convolution in `lattice.py`. Cropped or rounded-away mass is discarded for lower bounds and charged at infinite loss for upper bounds.
 
-`mpinterval.py` requests explicit downward/upward MPFR rounding for every primitive at 256-bit precision and exports exact dyadic fractions. `intervals.py` retains an independent rational-series enclosure used for the original Gaussian comparison and selected cross-checks. `verify_checks.py` compares these primitive enclosures, verifies packed multiplication against naive integer convolution on small inputs, checks likelihood-score calculations directly, tests conditional moment inequalities, and verifies preservation of the Poisson one-step profile at a grid threshold. These are additional implementation checks, not independent human review or formal verification.
+`mpinterval.py` requests explicit downward/upward MPFR rounding for every primitive at 256-bit precision and exports exact dyadic fractions. `intervals.py` retains an independent rational-series enclosure used for the original Gaussian comparison and selected cross-checks. `verify_checks.py` compares these primitive enclosures, verifies packed multiplication against naive integer convolution on small inputs, checks likelihood-score calculations directly, tests conditional moment inequalities, and verifies preservation of the Poisson one-step profile at a grid threshold. These are implementation checks. The Lean development in the sibling `formalization` directory checks parts of the mathematics; the paper lists exactly which.
 
 ## Files and provenance
 
 The paper and proof source are in the sibling `paper` directory. `verified_results.json` and `comparison_sigma*.dat` contain the accepted comparison. `results_sigma*.json`, `pair_maximum_results_sigma*.json`, and `poisson_results_sigma*.json` retain each calculation's exact directional endpoints and scope. Input files and intermediate convolution arrays are included so that individual stages can be inspected without rerunning the whole artifact.
 
-`baseline/` preserves the prior moment/Laplace null-clone implementation and its certificates supplied in the preceding research round. It is used only for the explicitly labeled ablation. The new upper proof and computations do not assume those bounds. `checks/coarse_results_sigma*.json` records a second conservative computation using a coarser mesh; it is not used to interpolate or certify the fine run. To recompute the inherited baseline, run its `run_all.py` separately in that directory.
+`baseline/` keeps the earlier moment/Laplace evaluation of the same null-clone reduction and its certificates. It is used only for the ablation in the paper, and the new upper computation does not depend on it. To recompute it, run `run_all.py` inside that directory. `checks/coarse_results_sigma*.json` records the coarse second computation described above; it is not used to interpolate or certify the fine run.
 
 The cloning principle and approximate-kernel replacement are credited to Feldman, McMillan, and Talwar, “Hiding Among the Clones” (FOCS 2021; arXiv:2012.12803). Dominating-pair and discretization foundations are credited to Zhu, Dong, and Wang (AISTATS 2022), Gopi, Lee, and Wutschitz (NeurIPS 2021; arXiv:2106.02848), and Doroshenko et al. (PoPETs 2022; arXiv:2207.04380). The benchmark is from Chua et al. (ICML 2024; arXiv:2403.17673), with its multi-epoch construction in “Scalable DP-SGD” (NeurIPS 2024; arXiv:2411.04205). Full bibliographic entries and the independent-allocation distinction are in the manuscript.
 
-The source and proofs were developed with GPT-6 Astra Pro assistance. The artifact's deterministic verification path uses no language model or training dataset. The results have received internal proof and arithmetic checks, not independent mathematical review. Human author review and a publication license decision remain necessary before release as production accounting software.
+The source and proofs were developed with GPT-6 Astra Pro assistance, and a later revision used Claude Opus 5.5, as stated in the paper. The deterministic verification path uses no language model or training dataset. This copy is provided for review and carries no license yet.
