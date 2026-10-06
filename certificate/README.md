@@ -72,4 +72,4 @@ The paper and proof source are in the sibling `paper` directory. `verified_resul
 
 The cloning principle and approximate-kernel replacement are credited to Feldman, McMillan, and Talwar, "Hiding Among the Clones" (FOCS 2021; arXiv:2012.12803). Dominating-pair and discretization foundations are credited to Zhu, Dong, and Wang (AISTATS 2022), Gopi, Lee, and Wutschitz (NeurIPS 2021; arXiv:2106.02848), and Doroshenko et al. (PoPETs 2022; arXiv:2207.04380). The benchmark is from Chua et al. (ICML 2024; arXiv:2403.17673), with its multi-epoch construction in "Scalable DP-SGD" (NeurIPS 2024; arXiv:2411.04205). Full bibliographic entries and the independent-allocation distinction are in the manuscript.
 
-The source and proofs were developed with GPT-6 Astra Pro assistance, and a later revision used Claude Opus 5.5, as stated in the paper. The deterministic verification path uses no language model or training dataset. This copy is provided for review and carries no license yet.
+GPT-6 Astra and Claude models were used to assist with this research. This copy is provided for review and carries no license yet.
