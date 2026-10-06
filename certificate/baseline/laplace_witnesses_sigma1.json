@@ -1,0 +1,1279 @@
+{
+  "sigma": 1,
+  "laplace_s": [
+    0.0625,
+    0.125,
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.5,
+    2.0,
+    3.0,
+    4.0,
+    6.0,
+    8.0,
+    12.0,
+    16.0,
+    24.0,
+    32.0
+  ],
+  "replacement_witnesses": [
+    null,
+    null,
+    null,
+    null,
+    {
+      "kind": "laplace",
+      "hnum": 73,
+      "snum": 4,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 72,
+      "snum": 4,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 72,
+      "snum": 4,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 72,
+      "snum": 4,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 72,
+      "snum": 4,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 72,
+      "snum": 4,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 72,
+      "snum": 4,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 72,
+      "snum": 4,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 74,
+      "snum": 8,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 74,
+      "snum": 8,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 74,
+      "snum": 8,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 74,
+      "snum": 8,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 74,
+      "snum": 8,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 74,
+      "snum": 8,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 75,
+      "snum": 8,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 75,
+      "snum": 8,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 75,
+      "snum": 8,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 76,
+      "snum": 12,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 76,
+      "snum": 12,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 77,
+      "snum": 12,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 77,
+      "snum": 12,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 77,
+      "snum": 12,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 77,
+      "snum": 12,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 78,
+      "snum": 16,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 78,
+      "snum": 16,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 79,
+      "snum": 16,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 79,
+      "snum": 16,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 80,
+      "snum": 16,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 80,
+      "snum": 16,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 80,
+      "snum": 16,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 81,
+      "snum": 24,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 81,
+      "snum": 24,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 82,
+      "snum": 24,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 82,
+      "snum": 24,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 82,
+      "snum": 24,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 83,
+      "snum": 24,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 83,
+      "snum": 24,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 83,
+      "snum": 24,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 84,
+      "snum": 32,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 84,
+      "snum": 32,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 84,
+      "snum": 32,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 85,
+      "snum": 32,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 85,
+      "snum": 32,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 85,
+      "snum": 32,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 86,
+      "snum": 32,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 86,
+      "snum": 32,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 86,
+      "snum": 48,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 87,
+      "snum": 48,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 87,
+      "snum": 48,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 87,
+      "snum": 48,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 88,
+      "snum": 48,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 88,
+      "snum": 48,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 88,
+      "snum": 48,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 89,
+      "snum": 48,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 89,
+      "snum": 64,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 89,
+      "snum": 64,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 90,
+      "snum": 64,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 90,
+      "snum": 64,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 90,
+      "snum": 64,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 90,
+      "snum": 64,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 90,
+      "snum": 64,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 91,
+      "snum": 64,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 91,
+      "snum": 64,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 91,
+      "snum": 96,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 92,
+      "snum": 96,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 92,
+      "snum": 96,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 92,
+      "snum": 96,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 92,
+      "snum": 96,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 92,
+      "snum": 96,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 93,
+      "snum": 96,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 93,
+      "snum": 96,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 93,
+      "snum": 96,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 93,
+      "snum": 128,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 94,
+      "snum": 128,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 94,
+      "snum": 128,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 94,
+      "snum": 128,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 94,
+      "snum": 128,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 94,
+      "snum": 128,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 94,
+      "snum": 128,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 95,
+      "snum": 128,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 95,
+      "snum": 128,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 95,
+      "snum": 192,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 95,
+      "snum": 192,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 95,
+      "snum": 192,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 96,
+      "snum": 192,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 96,
+      "snum": 192,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 96,
+      "snum": 192,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 96,
+      "snum": 192,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 96,
+      "snum": 192,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 96,
+      "snum": 192,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 97,
+      "snum": 256,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 97,
+      "snum": 256,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 97,
+      "snum": 256,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 97,
+      "snum": 256,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 97,
+      "snum": 256,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 97,
+      "snum": 256,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 97,
+      "snum": 256,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 97,
+      "snum": 256,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 98,
+      "snum": 256,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 98,
+      "snum": 256,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 98,
+      "snum": 384,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 98,
+      "snum": 384,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 98,
+      "snum": 384,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 98,
+      "snum": 384,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 98,
+      "snum": 384,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 99,
+      "snum": 384,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 99,
+      "snum": 384,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 99,
+      "snum": 384,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 99,
+      "snum": 384,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 99,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 99,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 99,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 99,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 99,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    {
+      "kind": "laplace",
+      "hnum": 100,
+      "snum": 512,
+      "sden": 16
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

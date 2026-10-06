@@ -1,0 +1,461 @@
+\documentclass[conference]{IEEEtran}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,microtype,etoolbox}
+% Use a colon after the abstract heading; preserve IEEE fonts and geometry.
+\patchcmd{\abstract}{---}{: }{}{\errmessage{Abstract punctuation patch failed}}
+\usepackage{graphicx,pgfplots}
+\usepackage[hidelinks]{hyperref}
+\pgfplotsset{compat=1.18}
+\hypersetup{pdftitle={Certified Accounting for Adaptive Shuffled Gaussian Training},pdfauthor={Samuel Mausberg}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathcal N}
+\newcommand{\Prb}{\mathbb P}
+\newcommand{\HS}[3]{H_{#1}(#2,#3)}
+\newcommand{\pos}[1]{\left(#1\right)_+}
+\newcommand{\TV}{\operatorname{TV}}
+\newcommand{\Bin}{\operatorname{Bin}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\pair}{\mathrm{pair}}
+\newcommand{\dd}{\,\mathrm d}
+\title{Certified Accounting for Adaptive\\Shuffled Gaussian Training}
+\author{\IEEEauthorblockN{Samuel Mausberg}\IEEEauthorblockA{Working manuscript}}
+\begin{document}
+\bstctlcite{BSTcontrol}
+\maketitle
+\begin{abstract}
+Fixed-size shuffling is convenient for differentially private training, yet its accountant must preserve the dependence created by occupied batch slots. We develop a certified multi-epoch accountant for Gaussian queries that adapt to every preceding release. A null-clone reduction handles arbitrary common-record heterogeneity; direct conditional convolution of the random candidate count sharpens its privacy profile. A finite rational dominating pair then supports adaptive composition. With $1000$ batches per epoch, five fresh reshuffles, and $\delta=10^{-8}$, the certified epsilon is $7.97$ at noise multiplier $1$ and $0.71$ at noise multiplier $2$. Attainable lower bounds from the product of Chua et al.'s Gaussian-mixture pair are $6.423$ and $0.338$. Matched Poisson sampling is certified at $0.507$ and $0.182$, respectively, so even the attainable shuffled transcripts exceed those Poisson guarantees. All numerical endpoints include both divergence directions and explicit rounding charges. The artifact exports reusable dominating pairs and reconstructs the reported comparisons from directed arithmetic.
+\end{abstract}
+
+\section{Introduction}
+A training pipeline that shuffles its data and then reads consecutive batches uses each item exactly once per epoch. This is an attractive implementation rule. It is also part of the privacy mechanism: a batch containing the differing item contains one fewer common item, and that missing contribution can help identify its position. Chua et al.~\cite{chua2024,scalable} showed that replacing this sampling rule by Poisson subsampling in the analysis can materially understate the privacy cost of the adaptive-query transcript.
+
+The familiar candidate worst case is
+\begin{equation}\label{eq:chua}
+ P_S=\frac1T\sum_{j=1}^T\N(2e_j,\sigma^2 I_T),\qquad
+ Q_S=\frac1T\sum_{j=1}^T\N(e_j,\sigma^2 I_T).
+\end{equation}
+A scalar fixed query attains this pair: the differing item has value $+1$, every common item has value $-1$, and the neighboring input replaces the differing item by zero. Conjecture 3.2 of~\cite{chua2024} proposes that the pair dominates all adaptive queries. A final-query reflection disproves this claim at every finite $\eps$; Appendix~\ref{app:reflection} gives the proof. The pair nevertheless remains a useful attainable lower benchmark.
+
+We give upper and lower certificates at the same practical settings. For $T=1000$, five epochs, and $\delta=10^{-8}$, the unrestricted adaptive epsilon lies in
+\begin{equation}\label{eq:brackets}
+ (6.423,7.97]\quad(\sigma=1),\qquad
+ (0.338,0.71]\quad(\sigma=2).
+\end{equation}
+The lower endpoints follow from an explicit statistic of the independently repeated pair~\eqref{eq:chua}. The upper endpoints apply to heterogeneous records, every batch size, and arbitrary adaptation within and between epochs. Revealing the permutations gives the deterministic-batching upper endpoints $14.55021$ and $6.54266$.
+
+The improvement comes from evaluating the reduction more accurately. After common kernels acquire an approximate null component, the distinguished item is hidden among $1+\Bin(T-1,p)$ candidates. High moments obscure the effect of small candidate counts. We instead bound the conditional likelihood sum at each relevant count and average those bounds before constructing a composable experiment. At five epochs this reduces a moment/Laplace implementation of the same reduction from $9.21$ to $7.97$ at $\sigma=1$, and from $0.83$ to $0.71$ at $\sigma=2$.
+
+The matched sampling comparison makes these brackets useful. With independent inclusion probability $1/T$, the same noise, and $ET$ updates, Poisson accounting certifies $0.507$ and $0.182$ at five epochs. The shuffled lower endpoints already exceed those values by factors greater than $12.6$ and $1.85$. These statements compare uniform transcript guarantees under precisely specified samplers.
+
+\section{Related work and contribution}
+Cloning is the established amplification principle behind the reduction. Feldman, McMillan, and Talwar~\cite{fmt} analyze sequentially adaptive randomizers using binomially distributed clones. Their approximate-DP analysis also replaces kernels at a total-variation cost; Lemma C.1 records the $(1+e^\eps)$ transfer charge. We specialize these ingredients to a fixed null Gaussian and keep the distinguished Gaussian kernel intact.
+
+Composition through hypothesis-testing tradeoffs and dominating pairs is also established~\cite{gdp,zhu}. Gopi, Lee, and Wutschitz~\cite{glw} develop numerical privacy-loss composition with controlled approximation error. Doroshenko et al.~\cite{dots} construct valid discrete experiments from privacy-profile information. Our rational testing envelope is a dual form of this discretization principle. The numerical contribution is a directed candidate-count calculation and its use in a certified shuffled-training accountant.
+
+Feldman and Shenfeld~\cite{fs2025,fs2026} give reductions and efficient composable accounting for independent random allocation. Their likelihood-sum computations are closely related to the conditional experiment used here. Fixed-capacity shuffling requires an additional reduction before those experiments apply: conditioning on all common assignments identifies the null slot. Section~\ref{sec:capacity} tracks this distinction through the proof. Recent analyses for a fixed randomize-then-shuffle channel~\cite{takagi} or an all-noise versus hidden-shift experiment~\cite{vandijk} likewise require attention to the underlying observation model.
+
+The dynamic-shuffling lower construction in \emph{Scalable DP-SGD}~\cite{scalable} attains $(P_S^{\otimes E},Q_S^{\otimes E})$. We use this construction and compute certified lower bounds by coarsening each epoch's coordinate maximum. Its printed Theorem 3.5 omits $e^\eps$ before $Q(\Gamma_C)$, while the preceding paragraph gives the correct hockey-stick expression. We use that expression and make no assertion about the implementation used in that work.
+
+The remaining numerical question is how much accuracy is lost when the random candidate count is bounded through moments. We compute the conditional likelihood tail directly, then compare the resulting upper curve with attainable multi-epoch transcripts. The matched Poisson calculation gives that comparison an operational scale.
+
+\section{Model and main guarantee}\label{sec:model}
+Let $n=bT$ and fix items $x_1,\ldots,x_n$. Every epoch draws a fresh independent uniform permutation and divides it into $T$ batches of size $b$. From all preceding releases, a measurable analyst chooses $\psi_t$ satisfying
+\[
+ \|\psi_t(x)\|_2\le1,\qquad \psi_t(\bot)=0.
+\]
+The release is
+\begin{equation}\label{eq:release}
+ Y_t=\sum_{i\in B_t}\psi_t(x_i)+\sigma Z_t,
+ \qquad Z_t\stackrel{\mathrm{iid}}\sim\N(0,I_d).
+\end{equation}
+Neither batch identities nor permutation state are exposed. Analyst randomness is independent of the private input and can be conditioned on. Neighbors replace one item by $\bot$ while retaining its slot. The common items may be arbitrary.
+
+Write $P$ for the real-item law and $Q$ for its null neighbor. For real $\eps$, define
+\[
+ H_\eps(P,Q)=\sup_A\{P(A)-e^\eps Q(A)\}.
+\]
+A pair $(R,S)$ dominates $(P,Q)$ if its forward divergence is no smaller at every real threshold. This also controls the reverse divergence. Let $\eps^*_{E,T,\sigma}(\delta)$ be the smallest epsilon that works for every admissible analyst, dimension, and batch size. Let $\eps_{\pair,E}(\delta)$ denote the inverse profile of the product of~\eqref{eq:chua}.
+
+An epoch accountant must remain valid after conditioning on the earlier training history. Once that property is established, a single finite experiment can be reused through the run. The following theorem states the resulting guarantee; the next sections construct and verify its inputs.
+
+\begin{theorem}[Certified adaptive accounting]\label{thm:main}
+Suppose each conditional epoch pair obeys rational inequalities
+\[
+ H_{\log k_j}(P,Q)\le d_j^+,\qquad
+ H_{\log k_j}(Q,P)\le d_j^-,\qquad k_j\ge1,
+\]
+with $0\le d_j^\pm\le1$. For $a\in[0,1]$, set
+\begin{equation}\label{eq:envelope}
+ f(a)=\max\left\{0,\ \max_j(1-d_j^+-k_ja),\
+                    \max_j\frac{1-d_j^- -a}{k_j}\right\}.
+\end{equation}
+There is a finite rational pair $(R,S)$ with testing tradeoff $f$ that dominates every conditional epoch. Its $E$-fold product dominates the entire adaptive transcript for $E$ fresh reshuffles.
+
+The certified inputs supplied with this paper give, at $T=1000$ and $\delta=10^{-8}$,
+\begin{align*}
+ 6.423&<\eps_{\pair,5}(\delta)\le\eps^*_{5,1000,1}(\delta)\le7.97,\\
+ 0.338&<\eps_{\pair,5}(\delta)\le\eps^*_{5,1000,2}(\delta)\le0.71.
+\end{align*}
+In the second line the product pair has noise scale $2$, and in the first it has noise scale $1$.
+\end{theorem}
+
+Scaling every clipped gradient and the Gaussian noise by a public $C>0$ leaves the guarantee unchanged; $\sigma$ is the noise standard deviation divided by $C$. Dividing the sum by the fixed or expected batch size is postprocessing. Thus the upper accountant applies to the usual clipped-gradient implementation of DP-SGD under the specified sampling rule.
+
+\section{Null clones and the candidate count}\label{sec:clone}
+A common release that has the null law cannot identify which candidate slot holds the differing item. We create such releases in an auxiliary experiment and charge the change before composing epochs. The construction is conditional on an arbitrary incoming history.
+
+\subsection{One unrevealed item per batch}
+Choose uniformly $T$ representative indices, including the differing index. Allocate the remaining indices into filler groups of size $b-1$, then uniformly permute the representatives into the $T$ batches. Any fixed ordered partition has exactly $b^{T-1}$ compatible representative sets, so this construction gives the uniform partition.
+
+Reveal the representative set and filler allocation, leaving the representatives' order hidden. The revealed information has the same law under both hypotheses. Given it, each filler contribution is a known function of the release prefix. Causal subtraction is invertible, leaving an adaptive singleton shuffle with $T$ records and the original noise scale. Revelation can only increase divergence.
+
+\subsection{The conditional null-clone inequality}
+The kernel modification has a scalar cost even when the query dimension is large. Define $h=\log(1/p)$ and
+\begin{align}
+ \gamma_\sigma(p)&=p\Phi\left(-\sigma h+\frac1{2\sigma}\right)
+ -\Phi\left(-\sigma h-\frac1{2\sigma}\right),\label{eq:gamma}\\
+ \beta_p&=(T-1)\gamma_\sigma(p).\nonumber
+\end{align}
+This cost applies uniformly to every common query vector in the unit ball, which permits the same argument along adaptive histories.
+
+\begin{lemma}[Null-clone reduction]\label{lem:clone}
+Let $K=1+\Bin(T-1,p)$, independently of iid standard normals $Z_i$, and put
+\[
+ X_i=e^{Z_i/\sigma-1/(2\sigma^2)},\qquad
+ L_m=\frac1m\sum_{i=1}^mX_i.
+\]
+For every conditional neighboring epoch pair and $k\ge1$,
+\begin{align}
+ H_{\log k}(P,Q)&\le\E(L_K-k)_++(1+k)\beta_p,\label{eq:clonef}\\
+ H_{\log k}(Q,P)&\le\E(1-kL_K)_++(1+k)\beta_p.\label{eq:cloner}
+\end{align}
+\end{lemma}
+\begin{proof}
+Use the singleton reduction above, and let $g_u$ be the density of $\N(u,\sigma^2I_d)$. Set
+\[
+ \eta_u=\int(pg_0-g_u)_+,\qquad
+ r_u=\frac{(g_u-pg_0)_+}{1-p+\eta_u}.
+\]
+The modified density $\widetilde g_u=pg_0+(1-p)r_u$ integrates to one and satisfies $\TV(g_u,\widetilde g_u)=\eta_u$. A Gaussian displacement of norm at most one is a postprocessing of a scalar unit displacement, so $\eta_u\le\gamma_\sigma(p)$; the Gaussian likelihood-ratio threshold evaluates the latter integral as~\eqref{eq:gamma}.
+
+Modify only the common kernels. A sequential coupling up to its first disagreement gives
+\[
+ \TV(P,\widetilde P),\ \TV(Q,\widetilde Q)\le\beta_p.
+\]
+Equal prefixes induce the same query vector, so adaptation preserves each conditional coupling bound. Transferring a hockey-stick inequality through the two errors costs at most $(1+k)\beta_p$.
+
+To realize the modified mechanism, attach an independent Bernoulli-$p$ coin to each common index. A successful coin emits $g_0$; a failure emits $r_u$. Reveal the clone indices and the positions of all nonclones. The differing index is uniform among the remaining $K$ positions. Every other candidate emits the null law.
+
+The conditional experiment is a causal postprocessing of
+\[
+ P_K^a=\frac1K\sum_{j=1}^K\N(e_j,\sigma^2I_K),\qquad
+ Q_K^a=\N(0,\sigma^2I_K).
+\]
+At a candidate position with current differing-item query vector $a$, transform its scalar input $V_j$ to
+\[
+ aV_j+\sigma(I_d-aa^\top)^{1/2}Z'_j.
+\]
+Here $Z'_j$ is a fresh standard normal. A zero scalar mean gives $g_0$, and a unit scalar mean gives $g_a$, with covariance $\sigma^2I_d$. Nonclones are simulated from their residual kernels. Conditional on the distinguished position, future input noises remain independent of the simulated prefix, so the simulation permits feedback.
+
+Under $Q_K^a$ the likelihood ratio is $L_K$. Data processing, followed by averaging the common revelation and paying the TV transfer, proves both inequalities.
+\end{proof}
+
+\subsection{Keeping small candidate counts explicit}
+A moment bound averages different candidate counts before resolving the likelihood tail. That can be expensive when a small count and a large likelihood ratio occur together. We retain the count and compute the two conditional positive-part expectations directly.
+
+Write $S_m=\sum_{i=1}^mX_i$ and define
+\[
+ F_m(t)=\E(S_m-t)_+,\qquad J_m(t)=\E(t-S_m)_+.
+\]
+They obey the scalar recurrences
+\begin{equation}\label{eq:recurrences}
+ F_m(t)=\E F_{m-1}(t-X),\qquad
+ J_m(t)=\E J_{m-1}(t-X),
+\end{equation}
+with $F_0(t)=(-t)_+$ and $J_0(t)=t_+$. Both are convex in $t$. This permits a finite upper computation using endpoint spreads in $X$ and chords between threshold nodes.
+
+Let $g_\sigma(\eps)$ be the sensitivity-one Gaussian profile,
+\begin{equation}\label{eq:gaussian}
+ g_\sigma(\eps)=\Phi\left(-\sigma\eps+\frac1{2\sigma}\right)
+ -e^\eps\Phi\left(-\sigma\eps-\frac1{2\sigma}\right).
+\end{equation}
+Revealing the hidden position gives this upper bound for each conditional allocation pair. It also controls candidate counts beyond the finite convolution horizon.
+
+\begin{proposition}[Finite candidate-count bound]\label{prop:counts}
+Suppose $1\le M\le T$ and certified functions satisfy $\overline F_m\ge F_m$, $\overline J_m\ge J_m$ for $m\le M$. Put $w_m=\Prb(K=m)$, $g=g_\sigma(\log k)$, and
+\[
+\begin{aligned}
+ c_m^+&=\min\{g,\overline F_m(mk)/m\},\\
+ c_m^-&=\min\{g,k\overline J_m(m/k)/m\}.
+\end{aligned}
+\]
+The respective conditional epoch divergences are at most
+\begin{equation}\label{eq:finite-count}
+ \sum_{m=1}^Mw_mc_m^\pm+
+ \left(1-\sum_{m=1}^Mw_m\right)g+(1+k)\beta_p.
+\end{equation}
+Taking the minimum with $1$ and $g$ remains valid. Different thresholds and orientations may use different $p$.
+\end{proposition}
+\begin{proof}
+Conditioning on $K=m$ gives $F_m(mk)/m$ in the forward direction and $kJ_m(m/k)/m$ in reverse. Each is also at most $g$. Substitute the finite bounds into Lemma~\ref{lem:clone}; use $g$ for the residual candidate probability. The choice of $p$ changes only the comparison experiment.
+\end{proof}
+
+\subsection{Why fixed capacity matters}\label{sec:capacity}
+The independent-allocation reduction of Feldman--Shenfeld~\cite{fs2025}, Theorem 3.1, conditions on common users' assignments without revealing the differing user's assignment. Its appendix retains the heading ``Proof of Lemma 3.1.'' Under balanced shuffling, the same revelation identifies the batch with only $b-1$ common items and therefore the differing slot.
+
+An inert item can be equivalent to removal under independent allocation. Under shuffling it still occupies capacity. For the antipodal query, the two means are $-b\mathbf1+2e_J$ and $-b\mathbf1+e_J$, yielding~\eqref{eq:chua} after translation. The all-noise null experiment appears in Lemma~\ref{lem:clone} only after paying for the modification and replacing $T$ candidate positions by the random count $K$.
+
+\section{An experiment that composes}\label{sec:composition}
+A forward privacy inequality limits the probability of accepting the real-item hypothesis. A reverse inequality supplies another limit by applying it to the complementary decision. Their intersection is the testing envelope in Theorem~\ref{thm:main}, so threshold-specific clone choices can be used together.
+
+\begin{proof}[Proof of the composition claim in Theorem~\ref{thm:main}]
+For a randomized test $\varphi$, let
+\[
+ T_{P,Q}(a)=\inf_{0\le\varphi\le1:\,\E_Q\varphi\le a}
+ (1-\E_P\varphi).
+\]
+Integrating hockey-stick inequalities over test level sets extends them to randomized tests. The forward inequality gives $1-\E_P\varphi\ge1-d_j^+-k_ja$. Applying the reverse inequality to $1-\varphi$ gives $(1-d_j^- -a)/k_j$. Thus $T_{P,Q}\ge f$.
+
+The envelope $f$ is convex and decreasing, lies between zero and $1-a$, and has $f(1)=0$. On an interval of length $\Delta a_\ell$ with slope $-t_\ell$, assign an atom the masses
+\begin{equation}\label{eq:atoms}
+ S_\ell=\Delta a_\ell,\qquad R_\ell=t_\ell\Delta a_\ell.
+\end{equation}
+Add an $R$-only atom of mass $1-f(0)$. A zero-slope interval is an $S$-only atom. The masses are nonnegative and sum to one under each law.
+
+The likelihood ratios $t_\ell$ decrease along the envelope. A Neyman--Pearson test first selects the $R$-only atom and then successive intervals, randomizing within an atom as necessary. Its success probability at $S$-mass $a$ is exactly $1-f(a)$. The constructed pair has tradeoff $f$ and dominates every conditional epoch by binary experiment comparison~\cite{gdp,zhu,dots}. Rational input lines have rational intersections, giving rational atom masses.
+
+Each fresh permutation is independent of the incoming transcript. The conditional dominance therefore holds at every history, and the adaptive composition theorem for dominating pairs~\cite{zhu,dots} gives domination by $(R^{\otimes E},S^{\otimes E})$. The same proof allows different certified pairs across epochs.
+\end{proof}
+
+The construction is exact relative to the selected testing inequalities. The resulting privacy losses are supported on $j\log(51/50)$ in the supplied instances. We compose the real-law losses and the reverse-oriented null-law losses separately, retaining singular mass in each direction.
+
+\section{Certified practical comparisons}\label{sec:evaluation}
+We fix $T=1000$, $\delta=10^{-8}$, and noise multipliers $1$ and $2$. Every displayed upper endpoint verifies both directions. The lower curve is an attainable certificate for the product pair, computed with a fixed coarsening described below; all lines in the figures join certified markers without asserting interpolation guarantees.
+
+\begin{table*}[t]
+\centering
+\caption{Certified epsilon bounds at $T=1000$, $\delta=10^{-8}$. The columns marked $L$ are strict lower bounds from an attainable statistic of the continuous product pair. The columns marked $U$ are upper accountants. Poisson uses $q=1/1000$ and $1000E$ updates.}
+\label{tab:all}
+\small
+\begin{tabular}{r r r r r r r r r}
+\toprule
+&\multicolumn{4}{c}{$\sigma=1$}&\multicolumn{4}{c}{$\sigma=2$}\\
+\cmidrule(lr){2-5}\cmidrule(lr){6-9}
+Epochs&Pair $L$&Shuffle $U$&Poisson $U$&Deterministic $U$&Pair $L$&Shuffle $U$&Poisson $U$&Deterministic $U$\\
+\midrule
+1&5.106&5.64&0.306&5.77610&0.257&0.47&0.081&2.70761\\
+2&5.538&6.49&0.363&8.53379&0.289&0.54&0.114&3.94247\\
+3&5.885&7.11&0.414&10.77586&0.310&0.60&0.140&4.92507\\
+5&6.423&7.97&0.507&14.55021&0.338&0.71&0.182&6.54266\\
+10&7.354&9.46&0.697&22.17344&0.383&0.93&0.260&9.69785\\
+20&8.646&11.68&0.982&34.45138&0.438&1.29&0.372&14.55021\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{The shuffled upper accountant}
+The likelihood thresholds are $k_j=(51/50)^j$, $0\le j\le555$. We compute conditional counts through $M=64$ at $\sigma=1$ and $M=160$ at $\sigma=2$. The residual binomial probability receives the Gaussian bound in Proposition~\ref{prop:counts}. At each threshold a numerical search proposes $h=\log(1/p)$ on a rational grid of spacing $1/40$; the selected bound is then reevaluated with directed arithmetic.
+
+The exact endpoint certificates at the five-epoch upper values are
+\begin{equation}\label{eq:numeric-cert}
+\begin{array}{c|cc}
+(\sigma,\eps)&H_\eps(P^{(5)},Q^{(5)})&H_\eps(Q^{(5)},P^{(5)})\\ \hline
+(1,7.97)&\le9856064/10^{15}&\le3805278/10^{15}\\
+(2,0.71)&\le8525892/10^{15}&\le5244378/10^{15}.
+\end{array}
+\end{equation}
+Every entry is below $10^{-8}$. The exported JSON records the finer rational endpoints before decimal reporting.
+
+\subsection{An attainable product-pair lower bound}
+Independent reshuffling with the fixed antipodal query attains $(P_S^{\otimes E},Q_S^{\otimes E})$. For one epoch let $M_Y=\max_jY_j$ after the translation in~\eqref{eq:chua}. Its CDF under displacement $a\in\{1,2\}$ is
+\begin{equation}\label{eq:maxcdf}
+ \Prb_a(M_Y\le c)=
+ \Phi((c-a)/\sigma)\Phi(c/\sigma)^{T-1}.
+\end{equation}
+We bin this statistic at thresholds $c=\sigma j/100$, $0\le j\le1200$, including both unbounded end bins. Differences of~\eqref{eq:maxcdf} give the two probabilities of every bin. Their product is a postprocessing of the full continuous pair and therefore provides lower bounds on its divergences.
+
+At five epochs, the forward certificates at the lower endpoints are
+\[
+ H_{6.423}(P_S^{\otimes5},Q_S^{\otimes5})
+ \ge10011846/10^{15},
+\]
+\[
+ H_{0.338}(P_S^{\otimes5},Q_S^{\otimes5})
+ \ge10201901/10^{15},
+\]
+for noise scales $1$ and $2$, respectively. Each exceeds $10^{-8}$. The verifier evaluates the reverse statistic as well. The binned experiment's own inverse is enclosed in $(6.423,6.426]$ and $(0.338,0.342]$; only their lower endpoints are used for the continuous-pair comparison.
+
+\subsection{Matched Poisson and deterministic accounting}
+The matched Poisson mechanism includes every item independently with probability $q=1/T$ at each of $ET$ steps. It has expected batch size $b$ and the same sum-noise multiplier. Its tight stepwise dominating pair~\cite{chua2024,zhu} is
+\begin{equation}\label{eq:poisson}
+ A=(1-q)\N(0,\sigma^2)+q\N(1,\sigma^2),\qquad
+ B=\N(0,\sigma^2).
+\end{equation}
+We compute a pessimistic discretization of this pair by spreading each conditional likelihood ratio to its two bin endpoints while preserving its mean under $B$. Convex order proves dominance. Integer convolution then certifies the $ET$-step product, including both directions and all tail deficits.
+
+Deterministic batching composes as a Gaussian shift with displacement $\sqrt E/\sigma$. Directed bisection gives intervals of width $10^{-5}$, whose upper endpoints appear in Table~\ref{tab:all}. At five epochs, the Poisson upper values are $0.507$ and $0.182$, whereas the shuffled lower values are $6.423$ and $0.338$. The ratios $6.423/0.507>12.6$ and $0.338/0.182>1.85$ establish a separation without assuming that either reported upper curve is tight.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{semilogyaxis}[
+ width=\columnwidth,height=5.2cm,
+ xlabel={Epochs},ylabel={Privacy parameter $\eps$},
+ xmin=.7,xmax=20.3,ymin=.2,ymax=45,
+ xtick={1,5,10,15,20},ytick={.2,.5,1,2,5,10,20,40},
+ yticklabels={0.2,0.5,1,2,5,10,20,40},grid=major,
+ tick label style={font=\footnotesize},label style={font=\footnotesize},
+ legend columns=2,
+ legend style={font=\scriptsize,at={(.5,1.03)},anchor=south,draw=none,fill=none,
+ column sep=3pt},
+ legend cell align=left]
+\addplot+[color=blue!65!black,mark=*,mark size=1.5pt,mark options={draw=blue!65!black,fill=blue!65!black},thick] table[x=epochs,y=new_upper]{comparison_sigma1.dat};\addlegendentry{Adaptive shuffle upper}
+\addplot+[color=black,mark=triangle*,mark size=1.8pt,mark options={draw=black,fill=black},densely dashed,thick] table[x=epochs,y=pair_lower]{comparison_sigma1.dat};\addlegendentry{Product-pair lower}
+\addplot+[color=black!60,mark=square*,mark size=1.3pt,mark options={draw=black!60,fill=black!60},dashdotted] table[x=epochs,y=deterministic]{comparison_sigma1.dat};\addlegendentry{Deterministic upper}
+\addplot+[color=red!65!black,mark=diamond*,mark size=1.8pt,mark options={draw=red!65!black,fill=red!65!black},densely dotted,thick] table[x=epochs,y=poisson]{comparison_sigma1.dat};\addlegendentry{Poisson upper}
+\end{semilogyaxis}
+\end{tikzpicture}
+\caption{Noise multiplier $\sigma=1$, $T=1000$, and $\delta=10^{-8}$. The product-pair lower markers use the per-epoch maximum statistic. Poisson is a different sampler with matched noise and expected batch size.}
+\label{fig:sigma1}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{semilogyaxis}[
+ width=\columnwidth,height=5.2cm,
+ xlabel={Epochs},ylabel={Privacy parameter $\eps$},
+ xmin=.7,xmax=20.3,ymin=.055,ymax=20,
+ xtick={1,5,10,15,20},ytick={.1,.2,.5,1,2,5,10,20},
+ yticklabels={0.1,0.2,0.5,1,2,5,10,20},grid=major,
+ tick label style={font=\footnotesize},label style={font=\footnotesize},
+ legend columns=2,
+ legend style={font=\scriptsize,at={(.5,1.03)},anchor=south,draw=none,fill=none,
+ column sep=3pt},
+ legend cell align=left]
+\addplot+[color=blue!65!black,mark=*,mark size=1.5pt,mark options={draw=blue!65!black,fill=blue!65!black},thick] table[x=epochs,y=new_upper]{comparison_sigma2.dat};\addlegendentry{Adaptive shuffle upper}
+\addplot+[color=black,mark=triangle*,mark size=1.8pt,mark options={draw=black,fill=black},densely dashed,thick] table[x=epochs,y=pair_lower]{comparison_sigma2.dat};\addlegendentry{Product-pair lower}
+\addplot+[color=black!60,mark=square*,mark size=1.3pt,mark options={draw=black!60,fill=black!60},dashdotted] table[x=epochs,y=deterministic]{comparison_sigma2.dat};\addlegendentry{Deterministic upper}
+\addplot+[color=red!65!black,mark=diamond*,mark size=1.8pt,mark options={draw=red!65!black,fill=red!65!black},densely dotted,thick] table[x=epochs,y=poisson]{comparison_sigma2.dat};\addlegendentry{Poisson upper}
+\end{semilogyaxis}
+\end{tikzpicture}
+\caption{Noise multiplier $\sigma=2$ with the same evaluation protocol. The remaining bracket is wider than at $\sigma=1$. Both figures use logarithmic vertical axes, and joining lines assert no guarantee between markers.}
+\label{fig:sigma2}
+\end{figure}
+
+\subsection{How much of the bracket closes?}
+The candidate-count refinement improves every inherited threshold bound in both directions. With the same testing grid and composition routine, the five-epoch upper values decrease from $9.21$ to $7.97$ and from $0.83$ to $0.71$. Relative to the newly certified lower endpoints, these changes remove more than $44.4\%$ and $24.3\%$ of the corresponding bracket widths. The artifact retains both computations as an ablation.
+
+At $\sigma=1$, the one-epoch upper value is now below the deterministic comparison. Since the continuous-pair epsilon exceeds $5.106$, the unrestricted optimum is at most $5.64/5.106<1.105$ times that benchmark at one epoch. The analogous two-epoch factor is $6.49/5.538<1.172$. At five epochs the certified factor is below $1.241$; for $\sigma=2$ it is below $2.101$. These are ratio upper bounds obtained from the two sides of the bracket.
+
+\section{Limitations}
+The coordinate maximum loses information, and its upper inverse endpoints do not upper-bound the full continuous pair. The reported brackets therefore leave uncertainty in both the attainable benchmark and the unrestricted optimum; they do not identify an optimal adaptive policy or prove a large adaptive advantage. The implementation supplies certified profiles for $T=1000$ and $\sigma\in\{1,2\}$, although the reduction permits other parameters and products of different epoch pairs. Fresh independent permutations, zero-out adjacency, and ideal Gaussian releases are part of the guarantee. Reused permutations, arbitrary real-item replacement, released batch identities, or a particular finite-precision noise sampler require additional analysis. The lower results concern the full adaptive-query transcript, while a final trained model can have smaller privacy loss after postprocessing. The numerical and algebraic arguments have received internal checks; independent mathematical review and proof-assistant verification have not been performed.
+
+\section*{Open Science}
+The accompanying archive contains the rational dominating pairs and an executable accountant with an explicit sampler argument. It also contains every numerical input and the programs that reconstruct the figures and tables. A full run rebuilds the conditional convolutions, checks the two divergence directions, and emits exact endpoint fractions. No training dataset is needed; a permanent public repository has not yet been assigned to this working manuscript.
+
+\section*{LLM usage considerations}
+GPT-6 Astra Pro assisted with the derivations and numerical software. It also drafted and revised the exposition. The deterministic certificate programs do not invoke a language model, and no private training data were used in preparing the results.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\appendices
+\section{Certificate machinery}\label{app:certificate}
+\subsection{A finite convex upper law for the likelihood ratio}
+The normal input is divided into bins of width $1/50$ on $[-10,10]$. Let $X=e^{Z/\sigma-1/(2\sigma^2)}$, and let $c$ be the downward $2^{-30}$ rounding of $X(10)$. Define $Y=X$ in the finite interval, $Y=0$ below it, and $Y=c$ above it. Then $Y\le X$ and
+\begin{align}\label{eq:tau}
+ \tau=\E(X-Y)
+ &=\Phi(-10-1/\sigma)+\Phi(1/\sigma-10)\nonumber\\
+ &\quad-c\Phi(-10).
+\end{align}
+The positive-part Lipschitz inequality gives a forward correction $m\tau$ for $F_m$ and hence $\tau$ after division by $m$. Since $Y\le X$, the reverse put requires no additional correction.
+
+For a finite normal bin $(z_0,z_1]$, its probability and first likelihood moment are
+\[
+ p=\Phi(z_1)-\Phi(z_0),\qquad
+ u=\Phi(z_1-1/\sigma)-\Phi(z_0-1/\sigma).
+\]
+Choose outward $2^{-30}$ support endpoints $l\le X(z_0)$ and $v\ge X(z_1)$. Replace the bin by the endpoint masses
+\begin{equation}\label{eq:spread}
+ w_l=\frac{vp-u}{v-l},\qquad
+ w_v=\frac{u-lp}{v-l}.
+\end{equation}
+These are nonnegative, sum to $p$, and preserve the bin's first moment. The chord inequality for a convex function proves convex-order domination. Apply it to the finite bins and retain the modified tail atoms.
+
+Endpoint probabilities are rounded downward to multiples of $2^{-72}$. To obtain a forward upper law, move the entire unassigned mass to the largest support point. For the reverse put, move it to zero. Both laws are normalized exactly. Their monotonicity directions give the corresponding conservative expectations.
+
+\subsection{Directed conditional convolution}
+Threshold nodes are dyadic. Starting with $0$ and $2^{-30}$, the integer support-unit grid advances by the larger of $1$ and the current node divided downward by $400$, ending at the required maximum. Forward nodes extend through $M$ times the largest support; reverse nodes extend through $M$. The chord argument is valid on any increasing grid, so node placement affects accuracy without changing soundness.
+
+Suppose the previous exact continuation is convex and upper-bounded at the nodes. At $t-y$ inside an interval, its value is at most the chord of the exact endpoint values, and therefore at most the chord of the stored upper endpoints. Average these bounds with the upper-law atoms. For $t-y<0$, the forward continuation is $(m-1)\E Y-(t-y)$ and the reverse continuation is zero. Beyond the largest possible forward sum the continuation is zero. These identities establish induction from the exact base functions in~\eqref{eq:recurrences}.
+
+All transition arithmetic is nonnegative and rounded toward $+\infty$ in IEEE binary64. Integer support differences are exact; probability conversion is padded upward by one representable step. Compilation disables contraction and fast-math transformations, and the executable checks the active rounding mode. The evaluation of $F_m(mk)$ rounds its argument downward because $F_m$ is decreasing; evaluation of $J_m(m/k)$ rounds upward. Add the tail correction~\eqref{eq:tau} and cap each conditional profile by~\eqref{eq:gaussian}.
+
+The selected $h$ values lie on $\{140,\ldots,380\}/40$ for $\sigma=1$ and $\{65,\ldots,240\}/40$ for $\sigma=2$. Floating-point search only selects a candidate. The accepted expression~\eqref{eq:finite-count} is reevaluated with directed intervals, including all $m\le M$ and an upper enclosure for the residual binomial probability. A second run at half the input-bin resolution and a coarser threshold grid gives a second conservative evaluation.
+
+\subsection{Rational testing envelopes and upper products}
+GNU MPFR~\cite{mpfr} evaluates elementary functions and the complementary error function with separate downward and upward rounding at $256$-bit precision. The interval wrapper exports exact dyadic endpoints. Every completed one-epoch bound is rounded upward to a multiple of $2^{-100}$ and capped at one. Sorting the rational lines of~\eqref{eq:envelope} gives their upper envelope, whose slopes and intersections yield~\eqref{eq:atoms}. The verifier checks every input line, nonnegative masses, exact normalization, and the likelihood ratio of every finite atom.
+
+For the shuffled dominating pair, finite masses are rounded downward to multiples of $2^{-56}$. The resulting arrays are lower submeasures at known likelihood ratios, and are never renormalized. Integer polynomial multiplication computes a convolution exactly before each coefficient is divided downward by $2^{56}$. Packing in base $2^{128}$ is safe because every coefficient is at most $2^{112}$. An independent coefficient-sum identity is checked after unpacking.
+
+For a retained real-law mass $\underline w_j$ at privacy loss $j\log r$, a certified upper profile is
+\begin{equation}\label{eq:upperpld}
+ 1-\sum_j\underline w_j\min\{1,e^\eps r^{-j}\}.
+\end{equation}
+Every missing mass is paid at infinite loss, including singular atoms and all rounding deficits. The factors subtracted in~\eqref{eq:upperpld} are rounded downward. Use the null-law array with reversed loss indices for the second direction. Independent rational bisection gives the deterministic Gaussian brackets.
+
+\subsection{Lower products from the maximum statistic}
+For each bin in~\eqref{eq:maxcdf}, let its exact probabilities be $p_i,q_i$. Directed intervals enclose both probabilities and $\log(p_i/q_i)$. Under the real law, round mass downward to multiples of $2^{-72}$ and privacy loss downward to multiples of $\log(2001/2000)$. Under the null law, apply the same procedure to the reversed loss $\log(q_i/p_i)$.
+
+The function $\ell\mapsto(1-e^{\eps-\ell})_+$ is increasing. Independent products of these rounded losses, with missing mass discarded, give divergence lower bounds. Upward-rounded losses with missing mass paid at infinity give upper bounds for the binned experiment itself. They supply the numerical inverse intervals reported in Section~\ref{sec:evaluation}. Both products use exact integer convolution; base $2^{192}$ accommodates the $72$-bit masses.
+
+\subsection{A continuous Poisson upper comparison}
+Under $B$ in~\eqref{eq:poisson}, the likelihood ratio is
+\[
+ L(z)=1-q+qe^{z/\sigma-1/(2\sigma^2)},\qquad z\sim\N(0,1).
+\]
+Use likelihood endpoints $a=r^j,b=r^{j+1}$ with $r=10001/10000$. For a likelihood bin with $B$-mass $q_i$ and $A$-mass $p_i$, its endpoint $B$-masses are
+\[
+ s_a=\frac{bq_i-p_i}{b-a},\qquad
+ s_b=\frac{p_i-aq_i}{b-a},
+\]
+and its endpoint $A$-masses are $as_a,bs_b$. For any convex function of $L$, the endpoint chord bounds its conditional expectation. This constructs a dominating binary experiment, to which adaptive composition applies.
+
+The bin probabilities are explicit Gaussian CDF differences. If $u>1-q$, define
+\[
+ z(u)=\sigma\left[\log\frac{u-1+q}{q}+\frac1{2\sigma^2}\right].
+\]
+The two cumulative probabilities are $\Phi(z(u))$ and $(1-q)\Phi(z(u))+q\Phi(z(u)-1/\sigma)$. The lowest likelihood node is below $1-q$. The final node is beyond $L(10)$; any remaining tail is split into hypothesis-specific singular atoms, which reveals that tail perfectly and preserves domination.
+
+Retained endpoint masses are rounded downward to $2^{-72}$ and composed for $ET$ steps with exact integer multiplication. Cropping after intermediate convolutions is allowed because its entire mass deficit is charged in~\eqref{eq:upperpld}. Separate real and reverse-null arrays check both directions. This supplies continuous-mechanism upper bounds rather than an unquantified quadrature approximation.
+
+\section{The proposed pair is strictly improvable}\label{app:reflection}
+The differing item can change its query value in response to a prefix that favors the real-input hypothesis. This can remove cancellation in the final likelihood-ratio test. The following argument also explains why an attainable pair need not be a safe adaptive accountant.
+
+Fix $T\ge2$, $\sigma>0$, $k=e^\eps$, and common query values $-1$. The differing value is $+1$ in the first $T-1$ rounds. With $z_t=(Y_t+b)/\sigma$, set
+\[
+ U=\sum_{t<T}e^{2z_t/\sigma-2/\sigma^2},\qquad
+ V=\sum_{t<T}e^{z_t/\sigma-1/(2\sigma^2)}.
+\]
+Change the final differing value to $-1$ precisely when $r=U-kV>0$, leaving the null value zero.
+
+Write $f_u$ for the $\N(u,\sigma^2)$ density. At a fixed switching prefix, suppress its common positive factor. The forward signed densities before and after changing the query are $rf_-+f_+-kf_0$ and $(r+1)f_--kf_0$. Convexity gives
+\begin{align*}
+ \int(rf_-+f_+-kf_0)_+
+ &\le\frac r{r+1}\int((r+1)f_--kf_0)_+\\
+ &\quad+\frac1{r+1}\int((r+1)f_+-kf_0)_+\\
+ &=\int((r+1)f_--kf_0)_+.
+\end{align*}
+The endpoint integrals agree by reflection. Their signed densities have opposite half-line positive regions and disagree in sign on a positive-measure set. Both mixture weights are positive, so the inequality is strict.
+
+For the reverse direction put $s=V-kU$. On $r>0$ and $k\ge1$, $s<0$. The baseline density difference is $f_0-kf_+-(-s)f_-$; after switching it is $f_0-(k-s)f_-$. Apply the same strict convexity argument to the two negative components, using weights $k/(k-s)$ and $(-s)/(k-s)$, and then reflect.
+
+The switching region has positive probability because the ratio of the two displayed exponential summands is unbounded above. Outside it the mechanisms coincide. Integrating proves a strict increase in both ordered divergences at every finite $\eps\ge0$. The policy depends on the tested epsilon; the argument makes no uniform-optimality assertion about a single policy.
+\end{document}

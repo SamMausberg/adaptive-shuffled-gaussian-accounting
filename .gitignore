@@ -1,0 +1,7 @@
+certificate/candidate_dp
+__pycache__/
+paper/*.aux
+paper/*.blg
+paper/*.out
+paper/*.log
+formalization/.lake/

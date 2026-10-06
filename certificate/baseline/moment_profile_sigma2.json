@@ -1,0 +1,2793 @@
+{
+  "sigma": 2,
+  "T": 1000,
+  "ratio": [
+    "51",
+    "50"
+  ],
+  "J": 555,
+  "denominator": "1267650600228229401496703205376",
+  "interval_bits": 1024,
+  "rows": [
+    {
+      "j": 0,
+      "forward_numerator": "31770084643838650359237920561",
+      "reverse_numerator": "31770084643838650359237920561"
+    },
+    {
+      "j": 1,
+      "forward_numerator": "21633544424646970283067494036",
+      "reverse_numerator": "22198177462781365061580360592"
+    },
+    {
+      "j": 2,
+      "forward_numerator": "15506737736083444059150868217",
+      "reverse_numerator": "16459242540185333563589709967"
+    },
+    {
+      "j": 3,
+      "forward_numerator": "10783343269982931947647412416",
+      "reverse_numerator": "13029007004074486963084768209"
+    },
+    {
+      "j": 4,
+      "forward_numerator": "5156740986258950577626598904",
+      "reverse_numerator": "6709761210557652126932376888"
+    },
+    {
+      "j": 5,
+      "forward_numerator": "2420367268558455162164704273",
+      "reverse_numerator": "3802692194441087884924000037"
+    },
+    {
+      "j": 6,
+      "forward_numerator": "1155918453748456863112449979",
+      "reverse_numerator": "1998852744097094760532232811"
+    },
+    {
+      "j": 7,
+      "forward_numerator": "514606999998049656617360714",
+      "reverse_numerator": "1124528242413301552970815344"
+    },
+    {
+      "j": 8,
+      "forward_numerator": "244250950116478763803248885",
+      "reverse_numerator": "617383145490161974045385094"
+    },
+    {
+      "j": 9,
+      "forward_numerator": "112269531239303490747411840",
+      "reverse_numerator": "366265202172716281462853827"
+    },
+    {
+      "j": 10,
+      "forward_numerator": "54504140930349629943090751",
+      "reverse_numerator": "210878277562505218474471504"
+    },
+    {
+      "j": 11,
+      "forward_numerator": "26895566247649255913669870",
+      "reverse_numerator": "128837148779269881516640950"
+    },
+    {
+      "j": 12,
+      "forward_numerator": "13832369125380123539011862",
+      "reverse_numerator": "81512305220990026013300618"
+    },
+    {
+      "j": 13,
+      "forward_numerator": "7161812340405728482439219",
+      "reverse_numerator": "50935989862894475877143615"
+    },
+    {
+      "j": 14,
+      "forward_numerator": "3804500363902505547412515",
+      "reverse_numerator": "33206912269135172756546188"
+    },
+    {
+      "j": 15,
+      "forward_numerator": "2096125810337050356881601",
+      "reverse_numerator": "22695777288269616893941704"
+    },
+    {
+      "j": 16,
+      "forward_numerator": "1153760323667467954139588",
+      "reverse_numerator": "15340718363083499717416914"
+    },
+    {
+      "j": 17,
+      "forward_numerator": "654333651908831378717665",
+      "reverse_numerator": "10605474837164831746073856"
+    },
+    {
+      "j": 18,
+      "forward_numerator": "399694209774531147929677",
+      "reverse_numerator": "7675702450648077937457729"
+    },
+    {
+      "j": 19,
+      "forward_numerator": "253191241909231110955277",
+      "reverse_numerator": "5434401628790318595716882"
+    },
+    {
+      "j": 20,
+      "forward_numerator": "162083854723618913320217",
+      "reverse_numerator": "4143443904182997171546229"
+    },
+    {
+      "j": 21,
+      "forward_numerator": "104224091137518193991485",
+      "reverse_numerator": "3032807498710403640855001"
+    },
+    {
+      "j": 22,
+      "forward_numerator": "67036953742215272995076",
+      "reverse_numerator": "2316039798276958738594730"
+    },
+    {
+      "j": 23,
+      "forward_numerator": "47200271088776125931347",
+      "reverse_numerator": "1758820731589783743921168"
+    },
+    {
+      "j": 24,
+      "forward_numerator": "31096862114503043405697",
+      "reverse_numerator": "1365155612482557400594054"
+    },
+    {
+      "j": 25,
+      "forward_numerator": "23311372465137704323775",
+      "reverse_numerator": "1104788226936122737584085"
+    },
+    {
+      "j": 26,
+      "forward_numerator": "17093922851374421325034",
+      "reverse_numerator": "858041667378835587713740"
+    },
+    {
+      "j": 27,
+      "forward_numerator": "12783549350796903531335",
+      "reverse_numerator": "706337632608347403430193"
+    },
+    {
+      "j": 28,
+      "forward_numerator": "10582907799610438057693",
+      "reverse_numerator": "611640418926396352918705"
+    },
+    {
+      "j": 29,
+      "forward_numerator": "9366286337413451003755",
+      "reverse_numerator": "493208530955940680566750"
+    },
+    {
+      "j": 30,
+      "forward_numerator": "6957775571784323502974",
+      "reverse_numerator": "413487999231765069231487"
+    },
+    {
+      "j": 31,
+      "forward_numerator": "5096906207729210205633",
+      "reverse_numerator": "360670385888574665105499"
+    },
+    {
+      "j": 32,
+      "forward_numerator": "3959057382960891960775",
+      "reverse_numerator": "320188733863058718074573"
+    },
+    {
+      "j": 33,
+      "forward_numerator": "2889190006114426238699",
+      "reverse_numerator": "274782133057578277804724"
+    },
+    {
+      "j": 34,
+      "forward_numerator": "2229799422072864064544",
+      "reverse_numerator": "241720707697618028826689"
+    },
+    {
+      "j": 35,
+      "forward_numerator": "1757233996445887924246",
+      "reverse_numerator": "214609154526160141278265"
+    },
+    {
+      "j": 36,
+      "forward_numerator": "1328920755058474351715",
+      "reverse_numerator": "184271331674443847381409"
+    },
+    {
+      "j": 37,
+      "forward_numerator": "1057531479648038969451",
+      "reverse_numerator": "161338380858638302600259"
+    },
+    {
+      "j": 38,
+      "forward_numerator": "885034498965115664800",
+      "reverse_numerator": "143878286129812365667968"
+    },
+    {
+      "j": 39,
+      "forward_numerator": "698035365713372034058",
+      "reverse_numerator": "130506978800521524410087"
+    },
+    {
+      "j": 40,
+      "forward_numerator": "557630305686679754274",
+      "reverse_numerator": "119018465919129932530514"
+    },
+    {
+      "j": 41,
+      "forward_numerator": "466189344511426378512",
+      "reverse_numerator": "105093693141038505758397"
+    },
+    {
+      "j": 42,
+      "forward_numerator": "406674755043299265497",
+      "reverse_numerator": "94087179087102181909328"
+    },
+    {
+      "j": 43,
+      "forward_numerator": "357521626517401648557",
+      "reverse_numerator": "85342068021747957367049"
+    },
+    {
+      "j": 44,
+      "forward_numerator": "288714894806525632354",
+      "reverse_numerator": "78363980337944656732018"
+    },
+    {
+      "j": 45,
+      "forward_numerator": "242718260427929051601",
+      "reverse_numerator": "72777685965142221265906"
+    },
+    {
+      "j": 46,
+      "forward_numerator": "212008242232119603610",
+      "reverse_numerator": "68296106126519141581211"
+    },
+    {
+      "j": 47,
+      "forward_numerator": "191609387664221783072",
+      "reverse_numerator": "63897586079631134056224"
+    },
+    {
+      "j": 48,
+      "forward_numerator": "178210261961477183104",
+      "reverse_numerator": "58261622589896294846054"
+    },
+    {
+      "j": 49,
+      "forward_numerator": "152097877318643113370",
+      "reverse_numerator": "53603573850885386985570"
+    },
+    {
+      "j": 50,
+      "forward_numerator": "128448803732364728668",
+      "reverse_numerator": "49741538631835090576820"
+    },
+    {
+      "j": 51,
+      "forward_numerator": "112242539363867976521",
+      "reverse_numerator": "46531405156379543662408"
+    },
+    {
+      "j": 52,
+      "forward_numerator": "101191011816103107598",
+      "reverse_numerator": "43858308529672905420192"
+    },
+    {
+      "j": 53,
+      "forward_numerator": "93728140618595885201",
+      "reverse_numerator": "41630164911875782943137"
+    },
+    {
+      "j": 54,
+      "forward_numerator": "88776787036643204966",
+      "reverse_numerator": "39772744599611063103224"
+    },
+    {
+      "j": 55,
+      "forward_numerator": "77372008696048365514",
+      "reverse_numerator": "35473557636348604333193"
+    },
+    {
+      "j": 56,
+      "forward_numerator": "66092780025028340683",
+      "reverse_numerator": "26737974069618274540471"
+    },
+    {
+      "j": 57,
+      "forward_numerator": "58183373079977293557",
+      "reverse_numerator": "20253107693077665121622"
+    },
+    {
+      "j": 58,
+      "forward_numerator": "52667342879399213727",
+      "reverse_numerator": "15271856237649406997335"
+    },
+    {
+      "j": 59,
+      "forward_numerator": "46202643763039689837",
+      "reverse_numerator": "11541435850581654985566"
+    },
+    {
+      "j": 60,
+      "forward_numerator": "39899127606579361092",
+      "reverse_numerator": "8752920550998623748349"
+    },
+    {
+      "j": 61,
+      "forward_numerator": "34911764166197537816",
+      "reverse_numerator": "6600265083018854164604"
+    },
+    {
+      "j": 62,
+      "forward_numerator": "29063165600188862409",
+      "reverse_numerator": "5002318282772238294307"
+    },
+    {
+      "j": 63,
+      "forward_numerator": "24586509237359006327",
+      "reverse_numerator": "3801407887047267381804"
+    },
+    {
+      "j": 64,
+      "forward_numerator": "21159944391603994560",
+      "reverse_numerator": "2872965030321987723676"
+    },
+    {
+      "j": 65,
+      "forward_numerator": "18539258897874036591",
+      "reverse_numerator": "2183883638338892120735"
+    },
+    {
+      "j": 66,
+      "forward_numerator": "16538661355849115653",
+      "reverse_numerator": "1672666646981194981729"
+    },
+    {
+      "j": 67,
+      "forward_numerator": "14240694827649925253",
+      "reverse_numerator": "1276757118447928377796"
+    },
+    {
+      "j": 68,
+      "forward_numerator": "12127136727433119873",
+      "reverse_numerator": "973099153174279822502"
+    },
+    {
+      "j": 69,
+      "forward_numerator": "10493131432541299142",
+      "reverse_numerator": "747869210450933558294"
+    },
+    {
+      "j": 70,
+      "forward_numerator": "9231265119951458343",
+      "reverse_numerator": "580920291693399973207"
+    },
+    {
+      "j": 71,
+      "forward_numerator": "8258835258056322535",
+      "reverse_numerator": "457283037147686768744"
+    },
+    {
+      "j": 72,
+      "forward_numerator": "7512029278130917642",
+      "reverse_numerator": "357133437859388364622"
+    },
+    {
+      "j": 73,
+      "forward_numerator": "6680830154756565750",
+      "reverse_numerator": "277783385346829821295"
+    },
+    {
+      "j": 74,
+      "forward_numerator": "5749755247973404002",
+      "reverse_numerator": "219028370727915580609"
+    },
+    {
+      "j": 75,
+      "forward_numerator": "5023309350129690020",
+      "reverse_numerator": "175579837493116365379"
+    },
+    {
+      "j": 76,
+      "forward_numerator": "4457442275045841800",
+      "reverse_numerator": "143508391552764566465"
+    },
+    {
+      "j": 77,
+      "forward_numerator": "4017829369341703776",
+      "reverse_numerator": "119894518141542420455"
+    },
+    {
+      "j": 78,
+      "forward_numerator": "3677677236424001811",
+      "reverse_numerator": "98589630952535105647"
+    },
+    {
+      "j": 79,
+      "forward_numerator": "3416035806239077101",
+      "reverse_numerator": "79623441378061715474"
+    },
+    {
+      "j": 80,
+      "forward_numerator": "3062726678326695812",
+      "reverse_numerator": "65637626372522400970"
+    },
+    {
+      "j": 81,
+      "forward_numerator": "2669882838157235776",
+      "reverse_numerator": "55354429896962307767"
+    },
+    {
+      "j": 82,
+      "forward_numerator": "2360943700144744530",
+      "reverse_numerator": "47824502930394214716"
+    },
+    {
+      "j": 83,
+      "forward_numerator": "2118556035415494594",
+      "reverse_numerator": "42342508554358216786"
+    },
+    {
+      "j": 84,
+      "forward_numerator": "1929042866103783247",
+      "reverse_numerator": "38095483203462876954"
+    },
+    {
+      "j": 85,
+      "forward_numerator": "1781609419419384347",
+      "reverse_numerator": "31545250477665339783"
+    },
+    {
+      "j": 86,
+      "forward_numerator": "1667724136575928412",
+      "reverse_numerator": "26733437812480171300"
+    },
+    {
+      "j": 87,
+      "forward_numerator": "1556172176955485949",
+      "reverse_numerator": "23214398993936231917"
+    },
+    {
+      "j": 88,
+      "forward_numerator": "1360381790378768131",
+      "reverse_numerator": "20657034363383323651"
+    },
+    {
+      "j": 89,
+      "forward_numerator": "1205168652962638465",
+      "reverse_numerator": "17823014744828223763"
+    },
+    {
+      "j": 90,
+      "forward_numerator": "1082417208969989067",
+      "reverse_numerator": "15027558786412634781"
+    },
+    {
+      "j": 91,
+      "forward_numerator": "985671460708335705",
+      "reverse_numerator": "12921167049644130146"
+    },
+    {
+      "j": 92,
+      "forward_numerator": "909789687976850694",
+      "reverse_numerator": "10502533259451111435"
+    },
+    {
+      "j": 93,
+      "forward_numerator": "850672346285411482",
+      "reverse_numerator": "8681831811615320069"
+    },
+    {
+      "j": 94,
+      "forward_numerator": "805047336625120445",
+      "reverse_numerator": "7314534766353182101"
+    },
+    {
+      "j": 95,
+      "forward_numerator": "733555628711224938",
+      "reverse_numerator": "6291112936025677331"
+    },
+    {
+      "j": 96,
+      "forward_numerator": "647223971650916969",
+      "reverse_numerator": "5528561911701461691"
+    },
+    {
+      "j": 97,
+      "forward_numerator": "578391141352292434",
+      "reverse_numerator": "4963979852301344377"
+    },
+    {
+      "j": 98,
+      "forward_numerator": "523671042895145802",
+      "reverse_numerator": "4247340248142660149"
+    },
+    {
+      "j": 99,
+      "forward_numerator": "480346730514843849",
+      "reverse_numerator": "3577198216380790627"
+    },
+    {
+      "j": 100,
+      "forward_numerator": "446236174321851945",
+      "reverse_numerator": "3075640082277807973"
+    },
+    {
+      "j": 101,
+      "forward_numerator": "419585399702832851",
+      "reverse_numerator": "2701973989252167690"
+    },
+    {
+      "j": 102,
+      "forward_numerator": "398983322104875337",
+      "reverse_numerator": "2425363125806467066"
+    },
+    {
+      "j": 103,
+      "forward_numerator": "357844918562573362",
+      "reverse_numerator": "2222439623584963623"
+    },
+    {
+      "j": 104,
+      "forward_numerator": "317351648625417055",
+      "reverse_numerator": "1993029790547909943"
+    },
+    {
+      "j": 105,
+      "forward_numerator": "284900677583435595",
+      "reverse_numerator": "1686710138453196173"
+    },
+    {
+      "j": 106,
+      "forward_numerator": "258978043982696700",
+      "reverse_numerator": "1457711533142876060"
+    },
+    {
+      "j": 107,
+      "forward_numerator": "238360482055879510",
+      "reverse_numerator": "1258311089839390385"
+    },
+    {
+      "j": 108,
+      "forward_numerator": "222058877853765232",
+      "reverse_numerator": "1049456115137461298"
+    },
+    {
+      "j": 109,
+      "forward_numerator": "209272883999001695",
+      "reverse_numerator": "889386601004799612"
+    },
+    {
+      "j": 110,
+      "forward_numerator": "199354457590621404",
+      "reverse_numerator": "767057478129926209"
+    },
+    {
+      "j": 111,
+      "forward_numerator": "176512004844553456",
+      "reverse_numerator": "673931101563038837"
+    },
+    {
+      "j": 112,
+      "forward_numerator": "157011101545016122",
+      "reverse_numerator": "602837894102611358"
+    },
+    {
+      "j": 113,
+      "forward_numerator": "141313508381039537",
+      "reverse_numerator": "502452508094759652"
+    },
+    {
+      "j": 114,
+      "forward_numerator": "128719563701241756",
+      "reverse_numerator": "425513856221817151"
+    },
+    {
+      "j": 115,
+      "forward_numerator": "118660724099410363",
+      "reverse_numerator": "366713542773141102"
+    },
+    {
+      "j": 116,
+      "forward_numerator": "110674717732343046",
+      "reverse_numerator": "321948270215030739"
+    },
+    {
+      "j": 117,
+      "forward_numerator": "104385466181923371",
+      "reverse_numerator": "288046326400608564"
+    },
+    {
+      "j": 118,
+      "forward_numerator": "98582551553438312",
+      "reverse_numerator": "262556150393035829"
+    },
+    {
+      "j": 119,
+      "forward_numerator": "86925767824920234",
+      "reverse_numerator": "225729608892196361"
+    },
+    {
+      "j": 120,
+      "forward_numerator": "77482898923768071",
+      "reverse_numerator": "192280796385058832"
+    },
+    {
+      "j": 121,
+      "forward_numerator": "69853057827764115",
+      "reverse_numerator": "166750974316939614"
+    },
+    {
+      "j": 122,
+      "forward_numerator": "63709122387890990",
+      "reverse_numerator": "147349333382483591"
+    },
+    {
+      "j": 123,
+      "forward_numerator": "58784027828988870",
+      "reverse_numerator": "132691650621605315"
+    },
+    {
+      "j": 124,
+      "forward_numerator": "54859635355505122",
+      "reverse_numerator": "121708010160949629"
+    },
+    {
+      "j": 125,
+      "forward_numerator": "51757686953027278",
+      "reverse_numerator": "106839184971054334"
+    },
+    {
+      "j": 126,
+      "forward_numerator": "48022908211800199",
+      "reverse_numerator": "91041328686805965"
+    },
+    {
+      "j": 127,
+      "forward_numerator": "42433428049608690",
+      "reverse_numerator": "78985964036935135"
+    },
+    {
+      "j": 128,
+      "forward_numerator": "37891232633802642",
+      "reverse_numerator": "69826804986966025"
+    },
+    {
+      "j": 129,
+      "forward_numerator": "34209824947142254",
+      "reverse_numerator": "62909707663561566"
+    },
+    {
+      "j": 130,
+      "forward_numerator": "31236420194734553",
+      "reverse_numerator": "57729061588520788"
+    },
+    {
+      "j": 131,
+      "forward_numerator": "28845800334957359",
+      "reverse_numerator": "50639185656445917"
+    },
+    {
+      "j": 132,
+      "forward_numerator": "26935299952379166",
+      "reverse_numerator": "43422801043188381"
+    },
+    {
+      "j": 133,
+      "forward_numerator": "25420713028401614",
+      "reverse_numerator": "37622583270708693"
+    },
+    {
+      "j": 134,
+      "forward_numerator": "23093200399770867",
+      "reverse_numerator": "33214817941559281"
+    },
+    {
+      "j": 135,
+      "forward_numerator": "20448043679568553",
+      "reverse_numerator": "29884983473961860"
+    },
+    {
+      "j": 136,
+      "forward_numerator": "18293090892280459",
+      "reverse_numerator": "25491461961417231"
+    },
+    {
+      "j": 137,
+      "forward_numerator": "16250348722553337",
+      "reverse_numerator": "21809258617024009"
+    },
+    {
+      "j": 138,
+      "forward_numerator": "14585710720210823",
+      "reverse_numerator": "18938064200198021"
+    },
+    {
+      "j": 139,
+      "forward_numerator": "13301339033000935",
+      "reverse_numerator": "16706988743921234"
+    },
+    {
+      "j": 140,
+      "forward_numerator": "12318043056275474",
+      "reverse_numerator": "14981299554541089"
+    },
+    {
+      "j": 141,
+      "forward_numerator": "10837198940427925",
+      "reverse_numerator": "13651987093875567"
+    },
+    {
+      "j": 142,
+      "forward_numerator": "9355071765883082",
+      "reverse_numerator": "11540679287647727"
+    },
+    {
+      "j": 143,
+      "forward_numerator": "8195500405893690",
+      "reverse_numerator": "9890627974346315"
+    },
+    {
+      "j": 144,
+      "forward_numerator": "7291418134780103",
+      "reverse_numerator": "8604568267579351"
+    },
+    {
+      "j": 145,
+      "forward_numerator": "6589837858893712",
+      "reverse_numerator": "7605813348396417"
+    },
+    {
+      "j": 146,
+      "forward_numerator": "6048882240719768",
+      "reverse_numerator": "6833902181195296"
+    },
+    {
+      "j": 147,
+      "forward_numerator": "5457067972050156",
+      "reverse_numerator": "6241167769768237"
+    },
+    {
+      "j": 148,
+      "forward_numerator": "4681599989498321",
+      "reverse_numerator": "5338884942807415"
+    },
+    {
+      "j": 149,
+      "forward_numerator": "4072852180774945",
+      "reverse_numerator": "4572288306345255"
+    },
+    {
+      "j": 150,
+      "forward_numerator": "3596398657504625",
+      "reverse_numerator": "3974747284253278"
+    },
+    {
+      "j": 151,
+      "forward_numerator": "3224983475699141",
+      "reverse_numerator": "3510643764269600"
+    },
+    {
+      "j": 152,
+      "forward_numerator": "2937020988107618",
+      "reverse_numerator": "3151895874026296"
+    },
+    {
+      "j": 153,
+      "forward_numerator": "2696633812168516",
+      "reverse_numerator": "2876364070202931"
+    },
+    {
+      "j": 154,
+      "forward_numerator": "2301923331919659",
+      "reverse_numerator": "2468164981811218"
+    },
+    {
+      "j": 155,
+      "forward_numerator": "1991215366163009",
+      "reverse_numerator": "2110877054432436"
+    },
+    {
+      "j": 156,
+      "forward_numerator": "1747270973816225",
+      "reverse_numerator": "1832316175921635"
+    },
+    {
+      "j": 157,
+      "forward_numerator": "1556416440856995",
+      "reverse_numerator": "1615894202455821"
+    },
+    {
+      "j": 158,
+      "forward_numerator": "1407803153182323",
+      "reverse_numerator": "1444066009348892"
+    },
+    {
+      "j": 159,
+      "forward_numerator": "1292821804488920",
+      "reverse_numerator": "1305987361709861"
+    },
+    {
+      "j": 160,
+      "forward_numerator": "1108267584343053",
+      "reverse_numerator": "1106801375394112"
+    },
+    {
+      "j": 161,
+      "forward_numerator": "935860633386323",
+      "reverse_numerator": "934727206180228"
+    },
+    {
+      "j": 162,
+      "forward_numerator": "804108214323944",
+      "reverse_numerator": "803232038228822"
+    },
+    {
+      "j": 163,
+      "forward_numerator": "703813545939343",
+      "reverse_numerator": "703136233320116"
+    },
+    {
+      "j": 164,
+      "forward_numerator": "626748996456843",
+      "reverse_numerator": "627344242046387"
+    },
+    {
+      "j": 165,
+      "forward_numerator": "545372559192568",
+      "reverse_numerator": "550167638271326"
+    },
+    {
+      "j": 166,
+      "forward_numerator": "453073825231096",
+      "reverse_numerator": "459922860735001"
+    },
+    {
+      "j": 167,
+      "forward_numerator": "383179290960384",
+      "reverse_numerator": "390829790135776"
+    },
+    {
+      "j": 168,
+      "forward_numerator": "330420163230181",
+      "reverse_numerator": "338101058512989"
+    },
+    {
+      "j": 169,
+      "forward_numerator": "290773294736099",
+      "reverse_numerator": "298036142354585"
+    },
+    {
+      "j": 170,
+      "forward_numerator": "255932025656574",
+      "reverse_numerator": "267774689609606"
+    },
+    {
+      "j": 171,
+      "forward_numerator": "211485074047578",
+      "reverse_numerator": "222156266551003"
+    },
+    {
+      "j": 172,
+      "forward_numerator": "177758007634203",
+      "reverse_numerator": "187033020811861"
+    },
+    {
+      "j": 173,
+      "forward_numerator": "152238381564628",
+      "reverse_numerator": "160178361891359"
+    },
+    {
+      "j": 174,
+      "forward_numerator": "133005441137127",
+      "reverse_numerator": "138398594765692"
+    },
+    {
+      "j": 175,
+      "forward_numerator": "117767781753132",
+      "reverse_numerator": "122093223276292"
+    },
+    {
+      "j": 176,
+      "forward_numerator": "96902149584668",
+      "reverse_numerator": "100818261996446"
+    },
+    {
+      "j": 177,
+      "forward_numerator": "81041860755469",
+      "reverse_numerator": "83380800774724"
+    },
+    {
+      "j": 178,
+      "forward_numerator": "69017432643212",
+      "reverse_numerator": "70301008411145"
+    },
+    {
+      "j": 179,
+      "forward_numerator": "59933836177966",
+      "reverse_numerator": "60526496920350"
+    },
+    {
+      "j": 180,
+      "forward_numerator": "53105962436090",
+      "reverse_numerator": "53259741981655"
+    },
+    {
+      "j": 181,
+      "forward_numerator": "43417851737524",
+      "reverse_numerator": "43382721536657"
+    },
+    {
+      "j": 182,
+      "forward_numerator": "35871015289910",
+      "reverse_numerator": "35844390988064"
+    },
+    {
+      "j": 183,
+      "forward_numerator": "30209287890921",
+      "reverse_numerator": "30189109997505"
+    },
+    {
+      "j": 184,
+      "forward_numerator": "25977394187698",
+      "reverse_numerator": "25962101866229"
+    },
+    {
+      "j": 185,
+      "forward_numerator": "22488363078913",
+      "reverse_numerator": "22469823533111"
+    },
+    {
+      "j": 186,
+      "forward_numerator": "18260369646946",
+      "reverse_numerator": "18253929727607"
+    },
+    {
+      "j": 187,
+      "forward_numerator": "14888033029606",
+      "reverse_numerator": "14883248074677"
+    },
+    {
+      "j": 188,
+      "forward_numerator": "12408141553985",
+      "reverse_numerator": "12404586261990"
+    },
+    {
+      "j": 189,
+      "forward_numerator": "10573074418874",
+      "reverse_numerator": "10589224416158"
+    },
+    {
+      "j": 190,
+      "forward_numerator": "8622954354591",
+      "reverse_numerator": "8690489895816"
+    },
+    {
+      "j": 191,
+      "forward_numerator": "6912776907973",
+      "reverse_numerator": "6997481992083"
+    },
+    {
+      "j": 192,
+      "forward_numerator": "5662228784339",
+      "reverse_numerator": "5750130630699"
+    },
+    {
+      "j": 193,
+      "forward_numerator": "4750753500784",
+      "reverse_numerator": "4834120213780"
+    },
+    {
+      "j": 194,
+      "forward_numerator": "3957646589333",
+      "reverse_numerator": "4077724352458"
+    },
+    {
+      "j": 195,
+      "forward_numerator": "3144465011713",
+      "reverse_numerator": "3248802679851"
+    },
+    {
+      "j": 196,
+      "forward_numerator": "2548733618279",
+      "reverse_numerator": "2637196044896"
+    },
+    {
+      "j": 197,
+      "forward_numerator": "2113499931951",
+      "reverse_numerator": "2187143571522"
+    },
+    {
+      "j": 198,
+      "forward_numerator": "1789357226744",
+      "reverse_numerator": "1857215825199"
+    },
+    {
+      "j": 199,
+      "forward_numerator": "1410940005915",
+      "reverse_numerator": "1487671432309"
+    },
+    {
+      "j": 200,
+      "forward_numerator": "1133286831894",
+      "reverse_numerator": "1194992385231"
+    },
+    {
+      "j": 201,
+      "forward_numerator": "930042667554",
+      "reverse_numerator": "979288404121"
+    },
+    {
+      "j": 202,
+      "forward_numerator": "781762854896",
+      "reverse_numerator": "820813248107"
+    },
+    {
+      "j": 203,
+      "forward_numerator": "624226066787",
+      "reverse_numerator": "671344053674"
+    },
+    {
+      "j": 204,
+      "forward_numerator": "497467445574",
+      "reverse_numerator": "534450501281"
+    },
+    {
+      "j": 205,
+      "forward_numerator": "404528991317",
+      "reverse_numerator": "433437538545"
+    },
+    {
+      "j": 206,
+      "forward_numerator": "336583323265",
+      "reverse_numerator": "359098401707"
+    },
+    {
+      "j": 207,
+      "forward_numerator": "272241387731",
+      "reverse_numerator": "298430353231"
+    },
+    {
+      "j": 208,
+      "forward_numerator": "215493443968",
+      "reverse_numerator": "235766635494"
+    },
+    {
+      "j": 209,
+      "forward_numerator": "173829457500",
+      "reverse_numerator": "189482887619"
+    },
+    {
+      "j": 210,
+      "forward_numerator": "143316804616",
+      "reverse_numerator": "155375224977"
+    },
+    {
+      "j": 211,
+      "forward_numerator": "117039955398",
+      "reverse_numerator": "130320209892"
+    },
+    {
+      "j": 212,
+      "forward_numerator": "92102118398",
+      "reverse_numerator": "102548247875"
+    },
+    {
+      "j": 213,
+      "forward_numerator": "73771570515",
+      "reverse_numerator": "81772426268"
+    },
+    {
+      "j": 214,
+      "forward_numerator": "60327508077",
+      "reverse_numerator": "66445702656"
+    },
+    {
+      "j": 215,
+      "forward_numerator": "49605915638",
+      "reverse_numerator": "55169939478"
+    },
+    {
+      "j": 216,
+      "forward_numerator": "38838509263",
+      "reverse_numerator": "43972808512"
+    },
+    {
+      "j": 217,
+      "forward_numerator": "30915974443",
+      "reverse_numerator": "34826142311"
+    },
+    {
+      "j": 218,
+      "forward_numerator": "25098124784",
+      "reverse_numerator": "28072560940"
+    },
+    {
+      "j": 219,
+      "forward_numerator": "20732461214",
+      "reverse_numerator": "23097927374"
+    },
+    {
+      "j": 220,
+      "forward_numerator": "16160647456",
+      "reverse_numerator": "18589479986"
+    },
+    {
+      "j": 221,
+      "forward_numerator": "12793815241",
+      "reverse_numerator": "14635821663"
+    },
+    {
+      "j": 222,
+      "forward_numerator": "10318738504",
+      "reverse_numerator": "11714472932"
+    },
+    {
+      "j": 223,
+      "forward_numerator": "8503759287",
+      "reverse_numerator": "9560470986"
+    },
+    {
+      "j": 224,
+      "forward_numerator": "7177532525",
+      "reverse_numerator": "7976951068"
+    },
+    {
+      "j": 225,
+      "forward_numerator": "6213313908",
+      "reverse_numerator": "6817646405"
+    },
+    {
+      "j": 226,
+      "forward_numerator": "5517344071",
+      "reverse_numerator": "5973885405"
+    },
+    {
+      "j": 227,
+      "forward_numerator": "5020260287",
+      "reverse_numerator": "5364930382"
+    },
+    {
+      "j": 228,
+      "forward_numerator": "4670745992",
+      "reverse_numerator": "4930799097"
+    },
+    {
+      "j": 229,
+      "forward_numerator": "4430834556",
+      "reverse_numerator": "4626931049"
+    },
+    {
+      "j": 230,
+      "forward_numerator": "4272436086",
+      "reverse_numerator": "4420224462"
+    },
+    {
+      "j": 231,
+      "forward_numerator": "4174768491",
+      "reverse_numerator": "4286091709"
+    },
+    {
+      "j": 232,
+      "forward_numerator": "4122457226",
+      "reverse_numerator": "4206271451"
+    },
+    {
+      "j": 233,
+      "forward_numerator": "4104129528",
+      "reverse_numerator": "4167203022"
+    },
+    {
+      "j": 234,
+      "forward_numerator": "4111374382",
+      "reverse_numerator": "4158818586"
+    },
+    {
+      "j": 235,
+      "forward_numerator": "4137973000",
+      "reverse_numerator": "4173645690"
+    },
+    {
+      "j": 236,
+      "forward_numerator": "3006109176",
+      "reverse_numerator": "3006109176"
+    },
+    {
+      "j": 237,
+      "forward_numerator": "2077958996",
+      "reverse_numerator": "2077958996"
+    },
+    {
+      "j": 238,
+      "forward_numerator": "1434174727",
+      "reverse_numerator": "1434174727"
+    },
+    {
+      "j": 239,
+      "forward_numerator": "988325307",
+      "reverse_numerator": "988325307"
+    },
+    {
+      "j": 240,
+      "forward_numerator": "680033676",
+      "reverse_numerator": "680033676"
+    },
+    {
+      "j": 241,
+      "forward_numerator": "467189928",
+      "reverse_numerator": "467189928"
+    },
+    {
+      "j": 242,
+      "forward_numerator": "320471169",
+      "reverse_numerator": "320471169"
+    },
+    {
+      "j": 243,
+      "forward_numerator": "219491041",
+      "reverse_numerator": "219491041"
+    },
+    {
+      "j": 244,
+      "forward_numerator": "150098678",
+      "reverse_numerator": "150098678"
+    },
+    {
+      "j": 245,
+      "forward_numerator": "102487069",
+      "reverse_numerator": "102487069"
+    },
+    {
+      "j": 246,
+      "forward_numerator": "69870414",
+      "reverse_numerator": "69870414"
+    },
+    {
+      "j": 247,
+      "forward_numerator": "47560838",
+      "reverse_numerator": "47560838"
+    },
+    {
+      "j": 248,
+      "forward_numerator": "32324925",
+      "reverse_numerator": "32324925"
+    },
+    {
+      "j": 249,
+      "forward_numerator": "21935992",
+      "reverse_numerator": "21935992"
+    },
+    {
+      "j": 250,
+      "forward_numerator": "14863076",
+      "reverse_numerator": "14863076"
+    },
+    {
+      "j": 251,
+      "forward_numerator": "10055222",
+      "reverse_numerator": "10055222"
+    },
+    {
+      "j": 252,
+      "forward_numerator": "6792132",
+      "reverse_numerator": "6792132"
+    },
+    {
+      "j": 253,
+      "forward_numerator": "4580911",
+      "reverse_numerator": "4580911"
+    },
+    {
+      "j": 254,
+      "forward_numerator": "3084814",
+      "reverse_numerator": "3084814"
+    },
+    {
+      "j": 255,
+      "forward_numerator": "2074136",
+      "reverse_numerator": "2074136"
+    },
+    {
+      "j": 256,
+      "forward_numerator": "1392441",
+      "reverse_numerator": "1392441"
+    },
+    {
+      "j": 257,
+      "forward_numerator": "933355",
+      "reverse_numerator": "933355"
+    },
+    {
+      "j": 258,
+      "forward_numerator": "624667",
+      "reverse_numerator": "624667"
+    },
+    {
+      "j": 259,
+      "forward_numerator": "417427",
+      "reverse_numerator": "417427"
+    },
+    {
+      "j": 260,
+      "forward_numerator": "278512",
+      "reverse_numerator": "278512"
+    },
+    {
+      "j": 261,
+      "forward_numerator": "185540",
+      "reverse_numerator": "185540"
+    },
+    {
+      "j": 262,
+      "forward_numerator": "123413",
+      "reverse_numerator": "123413"
+    },
+    {
+      "j": 263,
+      "forward_numerator": "81963",
+      "reverse_numerator": "81963"
+    },
+    {
+      "j": 264,
+      "forward_numerator": "54351",
+      "reverse_numerator": "54351"
+    },
+    {
+      "j": 265,
+      "forward_numerator": "35985",
+      "reverse_numerator": "35985"
+    },
+    {
+      "j": 266,
+      "forward_numerator": "23789",
+      "reverse_numerator": "23789"
+    },
+    {
+      "j": 267,
+      "forward_numerator": "15702",
+      "reverse_numerator": "15702"
+    },
+    {
+      "j": 268,
+      "forward_numerator": "10348",
+      "reverse_numerator": "10348"
+    },
+    {
+      "j": 269,
+      "forward_numerator": "6809",
+      "reverse_numerator": "6809"
+    },
+    {
+      "j": 270,
+      "forward_numerator": "4474",
+      "reverse_numerator": "4474"
+    },
+    {
+      "j": 271,
+      "forward_numerator": "2935",
+      "reverse_numerator": "2935"
+    },
+    {
+      "j": 272,
+      "forward_numerator": "1923",
+      "reverse_numerator": "1923"
+    },
+    {
+      "j": 273,
+      "forward_numerator": "1257",
+      "reverse_numerator": "1257"
+    },
+    {
+      "j": 274,
+      "forward_numerator": "821",
+      "reverse_numerator": "821"
+    },
+    {
+      "j": 275,
+      "forward_numerator": "536",
+      "reverse_numerator": "536"
+    },
+    {
+      "j": 276,
+      "forward_numerator": "349",
+      "reverse_numerator": "349"
+    },
+    {
+      "j": 277,
+      "forward_numerator": "227",
+      "reverse_numerator": "227"
+    },
+    {
+      "j": 278,
+      "forward_numerator": "147",
+      "reverse_numerator": "147"
+    },
+    {
+      "j": 279,
+      "forward_numerator": "96",
+      "reverse_numerator": "96"
+    },
+    {
+      "j": 280,
+      "forward_numerator": "62",
+      "reverse_numerator": "62"
+    },
+    {
+      "j": 281,
+      "forward_numerator": "40",
+      "reverse_numerator": "40"
+    },
+    {
+      "j": 282,
+      "forward_numerator": "26",
+      "reverse_numerator": "26"
+    },
+    {
+      "j": 283,
+      "forward_numerator": "17",
+      "reverse_numerator": "17"
+    },
+    {
+      "j": 284,
+      "forward_numerator": "11",
+      "reverse_numerator": "11"
+    },
+    {
+      "j": 285,
+      "forward_numerator": "7",
+      "reverse_numerator": "7"
+    },
+    {
+      "j": 286,
+      "forward_numerator": "5",
+      "reverse_numerator": "5"
+    },
+    {
+      "j": 287,
+      "forward_numerator": "3",
+      "reverse_numerator": "3"
+    },
+    {
+      "j": 288,
+      "forward_numerator": "2",
+      "reverse_numerator": "2"
+    },
+    {
+      "j": 289,
+      "forward_numerator": "2",
+      "reverse_numerator": "2"
+    },
+    {
+      "j": 290,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 291,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 292,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 293,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 294,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 295,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 296,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 297,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 298,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 299,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 300,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 301,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 302,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 303,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 304,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 305,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 306,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 307,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 308,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 309,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 310,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 311,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 312,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 313,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 314,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 315,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 316,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 317,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 318,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 319,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 320,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 321,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 322,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 323,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 324,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 325,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 326,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 327,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 328,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 329,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 330,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 331,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 332,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 333,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 334,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 335,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 336,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 337,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 338,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 339,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 340,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 341,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 342,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 343,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 344,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 345,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 346,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 347,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 348,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 349,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 350,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 351,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 352,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 353,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 354,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 355,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 356,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 357,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 358,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 359,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 360,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 361,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 362,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 363,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 364,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 365,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 366,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 367,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 368,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 369,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 370,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 371,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 372,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 373,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 374,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 375,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 376,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 377,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 378,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 379,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 380,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 381,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 382,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 383,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 384,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 385,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 386,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 387,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 388,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 389,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 390,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 391,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 392,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 393,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 394,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 395,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 396,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 397,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 398,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 399,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 400,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 401,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 402,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 403,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 404,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 405,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 406,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 407,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 408,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 409,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 410,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 411,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 412,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 413,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 414,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 415,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 416,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 417,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 418,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 419,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 420,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 421,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 422,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 423,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 424,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 425,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 426,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 427,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 428,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 429,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 430,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 431,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 432,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 433,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 434,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 435,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 436,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 437,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 438,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 439,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 440,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 441,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 442,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 443,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 444,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 445,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 446,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 447,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 448,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 449,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 450,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 451,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 452,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 453,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 454,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 455,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 456,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 457,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 458,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 459,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 460,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 461,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 462,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 463,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 464,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 465,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 466,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 467,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 468,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 469,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 470,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 471,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 472,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 473,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 474,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 475,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 476,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 477,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 478,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 479,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 480,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 481,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 482,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 483,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 484,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 485,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 486,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 487,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 488,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 489,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 490,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 491,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 492,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 493,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 494,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 495,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 496,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 497,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 498,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 499,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 500,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 501,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 502,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 503,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 504,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 505,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 506,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 507,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 508,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 509,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 510,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 511,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 512,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 513,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 514,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 515,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 516,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 517,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 518,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 519,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 520,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 521,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 522,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 523,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 524,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 525,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 526,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 527,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 528,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 529,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 530,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 531,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 532,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 533,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 534,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 535,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 536,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 537,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 538,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 539,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 540,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 541,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 542,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 543,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 544,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 545,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 546,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 547,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 548,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 549,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 550,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 551,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 552,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 553,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 554,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    },
+    {
+      "j": 555,
+      "forward_numerator": "1",
+      "reverse_numerator": "1"
+    }
+  ]
+}

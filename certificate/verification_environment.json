@@ -1,0 +1,18 @@
+{
+  "python": "3.13.5",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "mpfr": "4.2.2",
+  "primitive_precision_bits": 256,
+  "candidate_convolution_rounding": "FE_UPWARD binary64; positive operations; checked rounding mode",
+  "compiler_flags": [
+    "-O2",
+    "-std=c++17",
+    "-frounding-math",
+    "-ffp-contract=off",
+    "-fno-fast-math"
+  ],
+  "full_reproduction_log_sha256": "48ebc1c19f86fdad288babda309f07b0ba66c85c279fb882d645f7c8a88b30b3",
+  "full_reproduction_passed": true,
+  "review_status": "Internal mathematical and implementation checks; no independent mathematical review or proof-assistant verification."
+}
