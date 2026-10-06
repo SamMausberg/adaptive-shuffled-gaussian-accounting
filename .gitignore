@@ -5,3 +5,4 @@ paper/*.blg
 paper/*.out
 paper/*.log
 formalization/.lake/
+dist/

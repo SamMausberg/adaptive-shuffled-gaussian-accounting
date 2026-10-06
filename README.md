@@ -5,3 +5,5 @@
 - `formalization/`: the Lean 4 development described in the section "Lean formalization" of the paper. `lake exe cache get && lake build` checks it, and `lake env lean Axioms.lean` prints the axioms of each result.
 
 Each directory has its own README with requirements and details.
+
+To package these files for upload, run `git archive --format=zip --prefix=supplementary/ -o supplementary_material.zip HEAD` from a clone; the archive contains only tracked files.
