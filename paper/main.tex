@@ -24,21 +24,23 @@
 \title{Certified Accounting for Adaptive\\Shuffled Gaussian Training}
 \author{\IEEEauthorblockN{Samuel Mausberg}\IEEEauthorblockA{Independent Researcher}}
 \begin{document}
+\pagestyle{plain}
 \bstctlcite{BSTcontrol}
 \maketitle
+\thispagestyle{plain}
 \begin{abstract}
-Many differentially private training pipelines shuffle the data once per epoch and read fixed-size batches, but account for privacy as if the batches were Poisson subsampled. This can understate the cost. We give a certified accountant for multi-epoch shuffled training with Gaussian noise. It remains valid when each query may depend on all earlier releases and the items are heterogeneous. A null-clone reduction hides the differing item among a random number of candidates. We bound the likelihood sum at each candidate count and merge the resulting bounds into one finite rational dominating pair that composes across epochs. With 1000 batches per epoch, five epochs, noise multiplier $1$ and $\delta=10^{-8}$, the adaptive epsilon lies in $(6.423,7.97]$, while matched Poisson sampling is certified at $0.507$. We also show that the pair conjectured by Chua et al.\ to dominate all adaptive queries does not. The dominating-pair construction and the counterexample are verified in Lean~4, along with supporting lemmas for the reduction and the certificate.
+Many differentially private training pipelines shuffle the data once per epoch and read fixed-size batches, but account for privacy as if the batches were Poisson subsampled. This mismatch can understate the cost. We give a certified accountant for multi-epoch shuffled training with Gaussian noise. It remains valid when each query may depend on all earlier releases and the items are heterogeneous. A null-clone reduction hides the differing item among a random number of candidates. We bound the likelihood sum at each candidate count and merge the resulting bounds into one finite rational dominating pair that composes across epochs. With 1000 batches per epoch, five epochs, noise multiplier $1$ and $\delta=10^{-8}$, the worst-case epsilon of the full adaptive transcript lies in $(6.423,7.97]$, while matched Poisson sampling is certified at $0.507$. We also show that the pair conjectured by Chua et al.\ to dominate all adaptive queries does not. The dominating-pair construction and the counterexample are verified in Lean~4, along with supporting lemmas for the reduction and the certificate.
 \end{abstract}
 
 \section{Introduction}
-A training pipeline that shuffles its data and then reads consecutive batches uses each item exactly once per epoch. This is an attractive implementation rule. It is also part of the privacy mechanism: a batch containing the differing item contains one fewer common item, and that missing contribution can help identify its position. Chua et al.~\cite{chua2024,scalable} showed that replacing this sampling rule by Poisson subsampling in the analysis can materially understate the privacy cost of the adaptive-query transcript.
+A training pipeline that shuffles its data and then reads consecutive batches uses each item exactly once per epoch. This rule is attractive to implement. It is also part of the privacy mechanism: a batch containing the differing item contains one fewer common item, and that missing contribution can help identify its position. Chua et al.~\cite{chua2024,scalable} showed that replacing this sampling rule by Poisson subsampling in the analysis can materially understate the privacy cost of the adaptive-query transcript.
 
 With $T$ batches per epoch and noise multiplier $\sigma$, the candidate worst case of Chua et al.\ is
 \begin{equation}\label{eq:chua}
  P_S=\frac1T\sum_{j=1}^T\N(2e_j,\sigma^2 I_T),\qquad
  Q_S=\frac1T\sum_{j=1}^T\N(e_j,\sigma^2 I_T).
 \end{equation}
-Here $e_j$ is the $j$th standard basis vector of $\R^T$. A scalar fixed query attains this pair: the differing item has value $+1$, every common item has value $-1$, and the neighboring input replaces the differing item by zero. Conjecture 3.2 of~\cite{chua2024} proposes that this pair tightly dominates the shuffled mechanism for all adaptive query methods. It does not: at every real $\eps$ an adaptive final query strictly increases the forward divergence above the pair's value, and at every $\eps\ge0$ the same query also increases the reverse divergence. Appendix~\ref{app:reflection} gives the proof. The pair nevertheless remains a useful attainable lower benchmark.
+Here $e_j$ is the $j$th standard basis vector of $\R^T$. A scalar fixed query attains this pair: the differing item has value $+1$, every common item has value $-1$, and the neighboring input replaces the differing item by zero. Conjecture 3.2 of~\cite{chua2024} proposes that this pair tightly dominates the shuffled mechanism for all adaptive query methods. It does not: at every real $\eps$ an adaptive final query, chosen for that $\eps$, strictly increases the forward divergence above the pair's value, and at every $\eps\ge0$ the same query also increases the reverse divergence. Appendix~\ref{app:reflection} gives the proof. The pair nevertheless remains a useful attainable lower benchmark.
 
 We give upper and lower certificates at practical settings. For $T=1000$, five epochs, and $\delta=10^{-8}$, the unrestricted adaptive epsilon lies in
 \begin{equation}\label{eq:brackets}
@@ -67,7 +69,7 @@ The dynamic-shuffling lower construction in \emph{Scalable DP-SGD}~\cite[Sec.~3,
 Two further works measure the cost of accounting for the wrong sampler. Lebeda et~al.~\cite{lebeda} show that fixed-size batches drawn independently without replacement need twice the noise multiplier of Poisson subsampling under add or remove adjacency, so that a Poisson accountant reporting $\eps\approx1$ can correspond to $\eps>10$. They also show that self-composing a worst-case dataset pair of one subsampled step can understate the privacy loss of the composition; Theorem~\ref{thm:main} avoids that step by composing a pair that dominates every conditional epoch. Annamalai et~al.~\cite{annamalai} audit DP-SGD with shuffling and find empirical leakage up to four times the Poisson guarantees reported for state-of-the-art models. Their audits give statistical lower bounds under particular threat models, while the brackets in~\eqref{eq:brackets} are certified on both sides.
 
 \section{Model and main guarantee}\label{sec:model}
-Let $n=bT$ and fix items $x_1,\ldots,x_n$. Training runs for $E$ epochs. Every epoch draws a fresh independent uniform permutation and divides it into $T$ consecutive batches of size $b$; $B_t$ is the batch read at step $t\le ET$. From all preceding releases, a measurable analyst chooses $\psi_t$ satisfying
+Let $b$, $T$, $E$ and $d$ be positive integers and $\sigma>0$. Put $n=bT$ and fix items $x_1,\ldots,x_n$. Training runs for $E$ epochs. Every epoch draws a fresh independent uniform permutation and divides it into $T$ consecutive batches of size $b$; $B_t$ is the batch read at step $t\le ET$. From all preceding releases, a measurable analyst chooses $\psi_t$ with values in $\R^d$ satisfying
 \[
  \|\psi_t(x)\|_2\le1,\qquad \psi_t(\bot)=0.
 \]
@@ -82,17 +84,17 @@ Write $P$ for the real-item law and $Q$ for its null neighbor. For real $\eps$, 
 \[
  H_\eps(P,Q)=\sup_A\{P(A)-e^\eps Q(A)\}.
 \]
-A pair $(R,S)$ dominates $(P,Q)$ if its forward divergence is no smaller at every real threshold. Because $H_\eps(Q,P)=1-e^\eps+e^\eps H_{-\eps}(P,Q)$ for probability measures, this also controls the reverse divergence. Let $\eps^*_{E,T,\sigma}(\delta)$ be the smallest $\eps$ such that $H_\eps(P,Q)\le\delta$ and $H_\eps(Q,P)\le\delta$ for the $E$-epoch transcript laws of every admissible analyst, dimension, batch size, dataset and zero-out neighbor. Let $\eps_{\pair,E}(\delta)$ be the smallest $\eps$ with $\max\{H_\eps(P_S^{\otimes E},Q_S^{\otimes E}),H_\eps(Q_S^{\otimes E},P_S^{\otimes E})\}\le\delta$ for the pair~\eqref{eq:chua}.
+A pair $(R,S)$ dominates $(P,Q)$ if its forward divergence is no smaller at every real threshold. Because $H_\eps(Q,P)=1-e^\eps+e^\eps H_{-\eps}(P,Q)$ for probability measures, domination also controls the reverse divergence. Let $\eps^*_{E,T,\sigma}(\delta)$ be the smallest $\eps$ such that $H_\eps(P,Q)\le\delta$ and $H_\eps(Q,P)\le\delta$ for the $E$-epoch transcript laws of every admissible analyst, dimension, batch size, dataset and zero-out neighbor. Let $\eps_{\pair,E}(\delta)$ be the smallest $\eps$ with $\max\{H_\eps(P_S^{\otimes E},Q_S^{\otimes E}),H_\eps(Q_S^{\otimes E},P_S^{\otimes E})\}\le\delta$ for the pair~\eqref{eq:chua}.
 
 An epoch accountant must remain valid after conditioning on the earlier training history. Once that property is established, a single finite experiment can be reused through the run. The following theorem states the resulting guarantee; the next sections construct and verify its inputs.
 
 \begin{theorem}[Certified adaptive accounting]\label{thm:main}
-Suppose each conditional epoch pair obeys rational inequalities
+Suppose each conditional epoch pair obeys finitely many inequalities
 \[
  H_{\log k_j}(P,Q)\le d_j^+,\qquad
  H_{\log k_j}(Q,P)\le d_j^-,\qquad k_j\ge1,
 \]
-with $0\le d_j^\pm\le1$. For $a\in[0,1]$, set
+with rational $k_j$ and $d_j^\pm$, and $0\le d_j^\pm\le1$. For $a\in[0,1]$, set
 \begin{equation}\label{eq:envelope}
  f(a)=\max\left\{0,\ \max_j(1-d_j^+-k_ja),\
                     \max_j\frac{1-d_j^- -a}{k_j}\right\}.
@@ -113,7 +115,7 @@ Scaling every clipped gradient and the Gaussian noise by a public $C>0$ leaves t
 A common release that has the null law cannot identify which candidate slot holds the differing item. We create such releases in an auxiliary experiment and charge the change before composing epochs. The construction is conditional on an arbitrary incoming history.
 
 \subsection{One unrevealed item per batch}\label{sec:singleton}
-Let $d$ be the differing index. Choose $T-1$ further indices uniformly from the other $n-1$; together with $d$ they are the representatives. Independently allocate the remaining $n-T$ indices uniformly into labeled filler groups $G_1,\ldots,G_T$ of size $b-1$, and independently draw a uniform bijection $\pi$ from batches to representatives, so that batch $t$ is $G_t\cup\{\pi(t)\}$. A triple produces a fixed ordered partition exactly when $d$ represents its own block and every other block supplies one of its $b$ elements as representative. That choice determines the filler groups and $\pi$, so each ordered partition arises from $b^{T-1}$ equally likely triples, and the batches form a uniform ordered partition.
+Let $i_\star$ be the differing index. Choose $T-1$ further indices uniformly from the other $n-1$; together with $i_\star$ they are the representatives. Independently allocate the remaining $n-T$ indices uniformly into labeled filler groups $G_1,\ldots,G_T$ of size $b-1$, and independently draw a uniform bijection $\pi$ from batches to representatives, so that batch $t$ is $G_t\cup\{\pi(t)\}$. A triple produces a fixed ordered partition exactly when $i_\star$ represents its own block and every other block supplies one of its $b$ elements as representative. That choice determines the filler groups and $\pi$, so each ordered partition arises from $b^{T-1}$ equally likely triples, and the batches form a uniform ordered partition.
 
 Reveal $W$, consisting of the representative set and the filler groups, and keep $\pi$ hidden. $W$ does not depend on the data, and every filler is a common item. Given $W$ and the incoming history, the filler sum $c_t=\sum_{i\in G_t}\psi_t(x_i)$ is a measurable function of $Y_{<t}$. The map $Y_t\mapsto Y_t-c_t(Y_{<t})$ has the recursive measurable inverse $Y_t=Y'_t+c_t(Y_{<t})$, so it changes neither ordered divergence, and it leaves an adaptive singleton shuffle of the $T$ representatives with the same $\sigma$. Because $W$ has the same law under both hypotheses, $H_\eps$ of the joint law of $(W,Y)$ is the $W$-average of the conditional divergences in either order, and data processing bounds the divergence of $Y$ alone by it.
 
@@ -162,7 +164,7 @@ At a candidate position with current differing-item query vector $a$, transform 
 \[
  aV_j+\sigma(I_d-aa^\top)^{1/2}Z'_j.
 \]
-Here $a=\psi_t(x_d)$ is computed from the simulated prefix and $Z'_j\sim\N(0,I_d)$ is fresh. Since $\|a\|_2\le1$, the matrix $I_d-aa^\top$ is positive semidefinite and its square root is continuous in $a$, so each step is a measurable kernel. A scalar input with mean $0$ gives $g_0$ and one with mean $1$ gives $g_a$, both with covariance $\sigma^2I_d$. The simulator uses $x_d$ but not the hypothesis, so the same kernel acts on both laws. Nonclones are simulated from their residual kernels. Conditional on the distinguished position, future input noises remain independent of the simulated prefix, so the simulation permits feedback.
+Here $a=\psi_t(x_{i_\star})$ is computed from the simulated prefix and $Z'_j\sim\N(0,I_d)$ is fresh. Since $\|a\|_2\le1$, the matrix $I_d-aa^\top$ is positive semidefinite and its square root is continuous in $a$, so each step is a measurable kernel. A scalar input with mean $0$ gives $g_0$ and one with mean $1$ gives $g_a$, both with covariance $\sigma^2I_d$. The simulator uses $x_{i_\star}$ but not the hypothesis, so the same kernel acts on both laws. Nonclones are simulated from their residual kernels. Conditional on the distinguished position, future input noises remain independent of the simulated prefix, so the simulation permits feedback.
 
 Under $Q_K$ the likelihood ratio is $L_K$. Data processing, followed by averaging the common revelation and paying the TV transfer, proves both inequalities.
 \end{proof}
@@ -180,7 +182,7 @@ They obey the scalar recurrences
  F_m(t)=\E F_{m-1}(t-X),\qquad
  J_m(t)=\E J_{m-1}(t-X),
 \end{equation}
-with $F_0(t)=(-t)_+$ and $J_0(t)=t_+$. Both are convex in $t$. This permits a finite upper computation using endpoint spreads in $X$ and chords between threshold nodes.
+with $F_0(t)=(-t)_+$ and $J_0(t)=t_+$. Both are convex in $t$. Convexity permits a finite upper computation using endpoint spreads in $X$ and chords between threshold nodes.
 
 Let $g_\sigma(\eps)$ be the sensitivity-one Gaussian profile,
 \begin{equation}\label{eq:gaussian}
@@ -352,7 +354,7 @@ Deterministic batching composes as a Gaussian shift with displacement $\sqrt E/\
 \end{figure}
 
 \subsection{Effect of the candidate-count refinement}
-The refinement never loosens the moment/Laplace bound at any threshold. At $\sigma=1$ it tightens the forward bound at the $411$ smallest of the $556$ thresholds and the reverse bound at the $431$ smallest; at $\sigma=2$ the counts are $247$ and $288$. Above those thresholds the two computations agree. With the same testing grid and composition routine, the five-epoch upper values decrease from $9.21$ to $7.97$ and from $0.83$ to $0.71$. Relative to the lower endpoints in Table~\ref{tab:all}, these changes remove more than $44.4\%$ and $24.3\%$ of the corresponding bracket widths. The supplementary material keeps both computations as an ablation.
+The moment/Laplace baseline bounds the two expectations in Lemma~\ref{lem:clone} by moment inequalities for $L_K$ and, in the reverse direction, also by a Laplace-transform inequality. The refinement never loosens that baseline at any threshold, as a comparison of the two computed profiles shows. At $\sigma=1$ it tightens the forward bound at the $411$ smallest of the $556$ thresholds and the reverse bound at the $431$ smallest; at $\sigma=2$ the counts are $247$ and $288$. Above those thresholds the two computations agree. With the same testing grid and composition routine, the five-epoch upper values decrease from $9.21$ to $7.97$ and from $0.83$ to $0.71$. Relative to the lower endpoints in Table~\ref{tab:all}, these changes remove more than $44.4\%$ and $24.3\%$ of the corresponding bracket widths. The supplementary material keeps both computations as an ablation.
 
 At $\sigma=1$ and one epoch, the refined upper value $5.64$ falls below the deterministic value $5.77610$, which the moment/Laplace evaluation ($5.78$) did not. Since the continuous-pair epsilon exceeds $5.106$, the unrestricted optimum is at most $5.64/5.106<1.105$ times that benchmark at one epoch. The analogous two-epoch factor is $6.49/5.538<1.172$. At five epochs the certified factor is below $1.241$; for $\sigma=2$ it is below $2.101$.
 
@@ -505,7 +507,7 @@ The lowest likelihood node is at most $1-q$, the infimum of $L$. The final node 
 Retained endpoint masses are rounded downward to multiples of $2^{-72}$ and composed for $ET$ steps with exact integer multiplication. Cropping after intermediate convolutions is allowed because the whole deficit is charged in~\eqref{eq:upperpld}, and separate real and reverse-null arrays cover both directions. The result is an upper bound for the continuous mechanism with no unquantified quadrature error.
 
 \section{The proposed pair is strictly improvable}\label{app:reflection}
-The differing item can change its query value in response to a prefix that favors the real-input hypothesis. This can remove cancellation in the final likelihood-ratio test. The following argument also explains why an attainable pair need not be a safe adaptive accountant.
+The differing item can change its query value in response to a prefix that favors the real-input hypothesis. Such a response can remove cancellation in the final likelihood-ratio test. The following argument also explains why an attainable pair need not be a safe adaptive accountant.
 
 Fix $T\ge2$, $\sigma>0$, $k=e^\eps$, and common query values $-1$. The differing value is $+1$ in the first $T-1$ rounds. With $z_t=(Y_t+b)/\sigma$, set
 \[
