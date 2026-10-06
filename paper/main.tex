@@ -1,7 +1,7 @@
 \documentclass[conference]{IEEEtran}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
-\usepackage{booktabs,microtype}
+\usepackage{booktabs,microtype,array}
 \usepackage{graphicx,pgfplots}
 \usepackage[hidelinks]{hyperref}
 \pgfplotsset{compat=1.18}
@@ -27,7 +27,7 @@
 \bstctlcite{BSTcontrol}
 \maketitle
 \begin{abstract}
-Many differentially private training pipelines shuffle the data once per epoch and read fixed-size batches, but account for privacy as if the batches were Poisson subsampled. This can understate the cost. We give a certified accountant for multi-epoch shuffled training with Gaussian noise, valid when every query adapts to all earlier releases and the records are heterogeneous. A null-clone reduction hides the differing record among a random number of candidates. We bound the likelihood sum at each candidate count and merge the resulting bounds into one finite rational dominating pair that composes across epochs. With 1000 batches per epoch, five epochs, noise multiplier $1$ and $\delta=10^{-8}$, the adaptive epsilon lies in $(6.423,7.97]$, while matched Poisson sampling is certified at $0.507$. We also show that the pair conjectured by Chua et al.\ to dominate all adaptive queries does not, and we check LEANSCOPE in Lean~4.
+Many differentially private training pipelines shuffle the data once per epoch and read fixed-size batches, but account for privacy as if the batches were Poisson subsampled. This can understate the cost. We give a certified accountant for multi-epoch shuffled training with Gaussian noise, valid when every query adapts to all earlier releases and the records are heterogeneous. A null-clone reduction hides the differing record among a random number of candidates. We bound the likelihood sum at each candidate count and merge the resulting bounds into one finite rational dominating pair that composes across epochs. With 1000 batches per epoch, five epochs, noise multiplier $1$ and $\delta=10^{-8}$, the adaptive epsilon lies in $(6.423,7.97]$, while matched Poisson sampling is certified at $0.507$. We also show that the pair conjectured by Chua et al.\ to dominate all adaptive queries does not. The dominating-pair construction and the counterexample are verified in Lean~4, along with the lemmas used by the reduction and by the certificate.
 \end{abstract}
 
 \section{Introduction}
@@ -51,7 +51,7 @@ The upper endpoints come from evaluating a clone reduction carefully. After the 
 
 A matched Poisson calculation puts the brackets on a familiar scale. With independent inclusion probability $1/T$, the same noise and $ET$ updates, Poisson accounting certifies $0.507$ and $0.182$ at five epochs. The shuffled lower endpoints exceed those values by factors greater than $12.6$ and $1.85$.
 
-LEANINTRO
+Section~\ref{sec:lean} describes a Lean~4 formalization of the dominating-pair construction, the counterexample and the lemmas used in the reduction and the certificate, and it states which steps are left to the written proofs.
 
 \section{Related work and contribution}
 Cloning is the established amplification principle behind the reduction. Feldman, McMillan, and Talwar~\cite{fmt} analyze sequentially adaptive randomizers using binomially distributed clones. Their approximate-DP analysis also replaces kernels at a total-variation cost; Lemma C.1 of the arXiv version records the $(1+e^\eps)$ transfer charge. We specialize these ingredients to a fixed null Gaussian and keep the distinguished Gaussian kernel intact.
@@ -108,7 +108,7 @@ Scaling every clipped gradient and the Gaussian noise by a public $C>0$ leaves t
 \section{Null clones and the candidate count}\label{sec:clone}
 A common release that has the null law cannot identify which candidate slot holds the differing item. We create such releases in an auxiliary experiment and charge the change before composing epochs. The construction is conditional on an arbitrary incoming history.
 
-\subsection{One unrevealed item per batch}
+\subsection{One unrevealed item per batch}\label{sec:singleton}
 Choose uniformly $T$ representative indices, including the differing index. Allocate the remaining indices into filler groups of size $b-1$, then uniformly permute the representatives into the $T$ batches. Any fixed ordered partition has exactly $b^{T-1}$ compatible representative sets, so this construction gives the uniform partition.
 
 Reveal the representative set and filler allocation, leaving the representatives' order hidden. The revealed information has the same law under both hypotheses. Given it, each filler contribution is a known function of the release prefix. Causal subtraction is invertible, leaving an adaptive singleton shuffle with $T$ records and the original noise scale. Revelation can only increase divergence.
@@ -351,6 +351,49 @@ Deterministic batching composes as a Gaussian shift with displacement $\sqrt E/\
 The refinement never loosens an inherited threshold bound. At $\sigma=1$ it tightens the forward bound at the $411$ smallest of the $556$ thresholds and the reverse bound at the $431$ smallest; at $\sigma=2$ the counts are $247$ and $288$. Above those thresholds the two computations agree. With the same testing grid and composition routine, the five-epoch upper values decrease from $9.21$ to $7.97$ and from $0.83$ to $0.71$. Relative to the new lower endpoints, these changes remove more than $44.4\%$ and $24.3\%$ of the corresponding bracket widths. The supplementary material keeps both computations as an ablation.
 
 At $\sigma=1$ and one epoch, the refined upper value $5.64$ falls below the deterministic value $5.77610$, which the moment evaluation ($5.78$) did not. Since the continuous-pair epsilon exceeds $5.106$, the unrestricted optimum is at most $5.64/5.106<1.105$ times that benchmark at one epoch. The analogous two-epoch factor is $6.49/5.538<1.172$. At five epochs the certified factor is below $1.241$; for $\sigma=2$ it is below $2.101$. These are ratio upper bounds obtained from the two sides of the bracket.
+
+\section{Lean formalization}\label{sec:lean}
+\begin{table*}[t]
+\centering
+\caption{Paper claims and the Lean declarations that prove them.}
+\label{tab:lean}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.25\textwidth}>{\raggedright\arraybackslash}p{0.7\textwidth}@{}}
+\toprule
+Paper & Lean declarations\\
+\midrule
+Theorem~\ref{thm:main}, first claim & \texttt{envelope\_pair\_exists}, \texttt{envPair\_spec}, \texttt{envPair\_tradeoff}, \texttt{envPair\_dominates}\\
+Shape of $f$; $T_{P,Q}\ge f$ & \texttt{envelope\_convexOn}, \texttt{envelope\_antitoneOn}, \texttt{envelope\_le\_one\_sub}, \texttt{envelope\_one}, \texttt{envelope\_le\_tradeoff}\\
+Randomized tests & \texttt{integral\_sub\_le\_hockeyStick}\\
+Reverse divergence (Section~\ref{sec:model}) & \texttt{hockeyStick\_swap}, \texttt{hockeyStick\_swap\_le}\\
+Lemma~\ref{lem:clone}: TV transfer & \texttt{hockeyStick\_log\_le\_hockeyStick\_add\_tv}\\
+Lemma~\ref{lem:clone}: modified kernel & \texttt{integral\_cloneResidual}, \texttt{isProbDensity\_cloneDensity}, \texttt{tvDist\_withDensity\_cloneDensity}, \texttt{withDensity\_cloneDensity}\\
+Lemma~\ref{lem:clone}: sequential coupling & \texttt{tvDist\_partialTraj\_comp\_le\_card}\\
+Lemma~\ref{lem:clone}: averaging, data processing & \texttt{hockeyStick\_sum\_smul\_le}, \texttt{hockeyStick\_comp\_le}, \texttt{hockeyStick\_map\_le}\\
+Lemma~\ref{lem:clone}: likelihood ratio & \texttt{hockeyStick\_log\_eq\_integral\_rnDeriv}, \texttt{hockeyStick\_swap\_log\_eq\_integral\_rnDeriv}\\
+\eqref{eq:gamma}, $\eta_u\le\gamma_\sigma(p)$ & \texttt{Gaussian.integral\_clone\_eq\_cloneCost}, \texttt{Gaussian.integral\_clone\_euclidean\_le\_cloneCost}\\
+\eqref{eq:gaussian} & \texttt{Gaussian.hockeyStick\_gaussianReal}, \texttt{Gaussian.hockeyStick\_gaussianReal\_symm}, \texttt{Gaussian.integral\_lr\_sub\_pos}, \texttt{Gaussian.integral\_one\_sub\_mul\_lr\_pos}\\
+\eqref{eq:recurrences} & \texttt{Gaussian.callF\_succ}, \texttt{Gaussian.putJ\_succ}, \texttt{Gaussian.convexOn\_callF}, \texttt{Gaussian.convexOn\_putJ}, \texttt{callF\_eq\_callLaw}, \texttt{putJ\_eq\_putLaw}\\
+Proposition~\ref{prop:counts} & \texttt{Gaussian.counts\_bound\_forward}, \texttt{Gaussian.counts\_bound\_reverse}\\
+\eqref{eq:tau} and its correction & \texttt{Gaussian.integral\_lr\_sub\_truncLR}, \texttt{Gaussian.truncLR\_le}, \texttt{call\_tail\_correction\_tau\_div}, \texttt{put\_tail\_correction}\\
+\eqref{eq:spread}, Poisson spread & \texttt{spread\_masses}, \texttt{integral\_le\_spread}, \texttt{poisson\_spread}, \texttt{poisson\_spread\_convex\_order}\\
+Directed convolution & \texttt{callFin\_le\_nodes}, \texttt{putFin\_le\_nodes}, \texttt{certificate\_call\_sound}, \texttt{certificate\_put\_sound}\\
+Relocation of rounded mass & \texttt{expect\_le\_relocate\_top}, \texttt{expect\_le\_relocate\_bot}\\
+\eqref{eq:upperpld}; lower products & \texttt{hockeyStick\_pi\_le\_upperProfile}, \texttt{lowerProfile\_le\_hockeyStick\_pi}, \texttt{isLowerSub\_prod\_iterate}\\
+Integer packing & \texttt{natConv\_le\_pow\_56}, \texttt{natConv\_le\_pow\_72}, \texttt{pack128\_digit}, \texttt{pack192\_digit}\\
+Appendix~\ref{app:reflection} & \texttt{Reflection.chua\_pair\_strictly\_improvable}, \texttt{Reflection.hockeyStick\_chua\_lt\_adapt}\\
+Decimal ratios in the text & \texttt{decimal\_claims}\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+We formalized the main arguments in Lean~4 with Mathlib (toolchain v4.34.0-rc2, Mathlib revision 2631d1cc). The development has seven modules and about 5500 lines, and Table~\ref{tab:lean} lists its main declarations, all in the namespace \texttt{ASGA}. Each of the 200 results printed by the accompanying audit file compiles without \texttt{sorry}, and \texttt{\#print axioms} reports only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. The hockey-stick divergence is defined as a supremum over measurable sets and the testing tradeoff as an infimum over measurable tests with values in $[0,1]$, so the statements hold for probability measures on arbitrary measurable spaces.
+
+The first claim of Theorem~\ref{thm:main} is proved as stated. For every finite list of rational lines with $k_j\ge1$ and $0\le d_j^\pm\le1$, an explicit pair with rational masses has tradeoff $f$ on $[0,1]$ and dominates, in both directions, every pair of probability measures that satisfies the line inequalities. The formal construction cuts $[0,1]$ at every crossing of two input lines, so one segment of the envelope may be split into several atoms with the same likelihood ratio; the tradeoff is unchanged. The identity $H_\eps(Q,P)=1-e^\eps+e^\eps H_{-\eps}(P,Q)$, which turns forward domination at every real threshold into reverse domination, is also proved. Appendix~\ref{app:reflection} is proved for every $T\ge2$ and $\sigma>0$ on the translated transcript densities, with the forward inequality at every real $\eps$ and the reverse inequality at every $\eps\ge0$.
+
+For Lemma~\ref{lem:clone}, the formal results are the transfer cost $(1+k)\beta_p$, the modified kernel with $\TV(g_u,\widetilde g_u)=\eta_u$, the bound $\eta_u\le\gamma_\sigma(p)$ for every $u$ in the unit ball of $\R^d$ with equality~\eqref{eq:gamma} at a unit scalar displacement, a hybrid bound for $T$ history-dependent kernels, data processing, and the likelihood-ratio form of both divergences. Proposition~\ref{prop:counts} is derived from the two conclusions of Lemma~\ref{lem:clone} together with the recurrences~\eqref{eq:recurrences}, the Gaussian profile~\eqref{eq:gaussian} and the tail correction~\eqref{eq:tau}. For Appendix~\ref{app:certificate}, Lean checks the convex-order spreads, the chord induction with its boundary cases, the relocation of rounded-away mass, the profile bound~\eqref{eq:upperpld} and its lower counterpart for products of lower submeasures, and carry-free integer packing. A final lemma shows that the functions $F_m$ and $J_m$ of Proposition~\ref{prop:counts} are exactly the recursions these results bound.
+
+Some steps rest on the written proofs alone. The reduction of the shuffled mechanism to the conditional experiment $(P_K^a,Q_K^a)$, which consists of the construction in Section~\ref{sec:singleton}, the clone coupling and the simulation with feedback, is not formalized, so Lemma~\ref{lem:clone} is assembled by hand from checked parts; the cap of each conditional epoch by $g_\sigma$ in Proposition~\ref{prop:counts} is in the same position. The second claim of Theorem~\ref{thm:main} cites the adaptive composition theorem~\cite[Thm.~10]{zhu}. In Appendix~\ref{app:reflection}, the passage from batch sums to the translated densities is checked by hand. Finally, the formal development does not model binary64 or MPFR rounding. Computed quantities enter its theorems only as inequality hypotheses, and the programs that supply them rely on the directed rounding of Appendix~\ref{app:certificate}.
 
 \section{Limitations}
 The brackets in Table~\ref{tab:all} are open on both sides. The coordinate maximum discards information, so the lower curve sits below the continuous product pair, and the upper accountant need not be tight. The results therefore do not identify an optimal adaptive policy, and they do not show that adaptivity gains much over the product pair.
