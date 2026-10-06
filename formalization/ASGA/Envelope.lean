@@ -8,7 +8,7 @@ This file proves the first claim of `thm:main` and the facts used for it in the 
 `k_j ≥ 1` and `0 ≤ d_j^± ≤ 1`, and the envelope `f` of `eq:envelope`.
 
 * `envelope_convexOn`, `envelope_antitoneOn`, `envelope_nonneg`, `envelope_le_one_sub`,
-  `envelope_one`: the envelope is convex and decreasing on `[0,1]`, lies between `0` and `1 - a`,
+  `envelope_one`: the envelope is convex and nonincreasing on `[0,1]`, lies between `0` and `1 - a`,
   and vanishes at `1`.
 * `integral_sub_le_hockeyStick`: a hockey-stick bound extends from sets to randomized tests.
 * `envelope_le_tradeoff`: the line inequalities give `T_{P,Q} ≥ f` on `[0,1]`.
@@ -233,7 +233,7 @@ theorem envelope_antitone : Antitone (envelope L) := by
         simp only [pval]; nlinarith
     _ ≤ envelope L x := pval_le_envelope hp x
 
-/-- The envelope is decreasing on `[0,1]` (`sec:composition`). -/
+/-- The envelope is nonincreasing on `[0,1]` (`sec:composition`). -/
 theorem envelope_antitoneOn : AntitoneOn (envelope L) (Icc 0 1) :=
   (envelope_antitone L).antitoneOn _
 

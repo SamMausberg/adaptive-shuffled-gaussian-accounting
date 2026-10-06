@@ -1772,10 +1772,10 @@ end Packing
 
 section Decimals
 
-/-- The ratio checks quoted in the introduction and in `sec:evaluation` (subsections on the
-matched Poisson comparison and on how much of the bracket closes), and the endpoint
-certificates `eq:numeric-cert` and those of the product-pair lower bound, compared with
-`δ = 10^-8`. -/
+/-- The ratio checks quoted in the introduction and in `sec:evaluation` (subsections
+"Matched Poisson and deterministic accounting" and "Effect of the candidate-count
+refinement"), and the endpoint certificates `eq:numeric-cert` and those of the
+product-pair lower bound, compared with `δ = 10^-8`. -/
 theorem decimal_claims :
     (6.423 : ℝ) / 0.507 > 12.6 ∧ (0.338 : ℝ) / 0.182 > 1.85 ∧
     (5.64 : ℝ) / 5.106 < 1.105 ∧ (6.49 : ℝ) / 5.538 < 1.172 ∧

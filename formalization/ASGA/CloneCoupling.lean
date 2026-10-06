@@ -392,7 +392,7 @@ theorem tvDist_partialTraj_comp_le_sum (a b : ℕ) (μ : Measure (Π i : Finset.
 
 /-- Modifying the step kernels only at the steps in `S ⊆ [a, b)`, each by at most `γ` in total
 variation uniformly over histories, changes the law of the history by at most `|S| γ`. In the
-proof of `lem:clone` the `T - 1` common-record rounds are modified, which gives
+proof of `lem:clone` the `T - 1` rounds of common items are modified, which gives
 `TV(P, P̃) ≤ (T - 1) γ_σ(p) = β_p`. -/
 theorem tvDist_partialTraj_comp_le_card (a b : ℕ) (μ : Measure (Π i : Finset.Iic a, X i))
     [IsProbabilityMeasure μ] (S : Finset ℕ) (hS : S ⊆ Finset.Ico a b) (γ : ℝ)

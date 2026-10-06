@@ -24,18 +24,20 @@
 \bibitem{chua2024}
 L.~Chua, B.~Ghazi, P.~Kamath, R.~Kumar, P.~Manurangsi, A.~Sinha, and C.~Zhang,
   ``How private are {DP-SGD} implementations?'' in \emph{International
-  Conference on Machine Learning}, ser. PMLR, vol. 235, 2024, arXiv:2403.17673.
+  Conference on Machine Learning}, ser. PMLR, vol. 235, 2024, pp. 8904--8918,
+  arXiv:2403.17673.
 
 \bibitem{scalable}
 L.~Chua, B.~Ghazi, P.~Kamath, R.~Kumar, P.~Manurangsi, A.~Sinha, and C.~Zhang,
   ``Scalable {DP-SGD}: Shuffling vs. {Poisson} subsampling,'' in \emph{Advances
-  in Neural Information Processing Systems}, vol.~37, 2024, arXiv:2411.04205.
+  in Neural Information Processing Systems}, vol.~37, 2024, pp.
+  70\,026--70\,047, arXiv:2411.04205.
 
 \bibitem{fmt}
 V.~Feldman, A.~McMillan, and K.~Talwar, ``Hiding among the clones: A simple and
   nearly optimal analysis of privacy amplification by shuffling,'' in
-  \emph{IEEE Symposium on Foundations of Computer Science}, 2021,
-  arXiv:2012.12803.
+  \emph{IEEE Symposium on Foundations of Computer Science}, 2021, pp. 954--964,
+  arXiv:2012.12803v3.
 
 \bibitem{gdp}
 J.~Dong, A.~Roth, and W.~J. Su, ``Gaussian differential privacy,''
@@ -51,7 +53,7 @@ Y.~Zhu, J.~Dong, and Y.-X. Wang, ``Optimal accounting of differential privacy
 \bibitem{glw}
 S.~Gopi, Y.~T. Lee, and L.~Wutschitz, ``Numerical composition of differential
   privacy,'' in \emph{Advances in Neural Information Processing Systems},
-  vol.~34, 2021, arXiv:2106.02848.
+  vol.~34, 2021, pp. 11\,631--11\,642, arXiv:2106.02848.
 
 \bibitem{dots}
 V.~Doroshenko, B.~Ghazi, P.~Kamath, R.~Kumar, and P.~Manurangsi, ``Connect the
@@ -62,7 +64,7 @@ V.~Doroshenko, B.~Ghazi, P.~Kamath, R.~Kumar, and P.~Manurangsi, ``Connect the
 \bibitem{fs2025}
 V.~Feldman and M.~Shenfeld, ``Privacy amplification by random allocation,'' in
   \emph{Advances in Neural Information Processing Systems}, vol.~38, 2025,
-  arXiv:2502.08202.
+  arXiv:2502.08202v4.
 
 \bibitem{fs2026}
 V.~Feldman and M.~Shenfeld, ``Efficient privacy loss accounting for subsampling
@@ -71,16 +73,17 @@ V.~Feldman and M.~Shenfeld, ``Efficient privacy loss accounting for subsampling
 
 \bibitem{takagi}
 S.~Takagi and S.~P. Liew, ``Analysis of shuffling beyond pure local
-  differential privacy,'' 2026, arXiv:2601.19154v4.
+  differential privacy,'' \emph{Proceedings of the ACM on Management of Data},
+  vol.~4, no.~2, 2026, {PODS} 2026; arXiv:2601.19154v4.
 
 \bibitem{vandijk}
 M.~van Dijk and M.~B. Ertan, ``Trade-off functions for {DP-SGD} with
-  subsampling based on random shuffling: Tight upper and lower bounds,'' 2026,
-  arXiv:2605.06259.
+  subsampling based on random allocation: Tight upper and lower bounds,'' 2026,
+  arXiv:2605.06259v3.
 
 \bibitem{mpfr}
-{The MPFR Team}, ``{GNU MPFR} 4.2.2 user manual,''
-  \url{https://www.mpfr.org/mpfr-current/mpfr.html}, correctly rounded
-  arithmetic and explicit directed rounding; accessed October 2026.
+{The MPFR Team}, ``{GNU MPFR}: The multiple precision floating-point reliable
+  library, edition 4.2.2,'' \url{https://www.mpfr.org/mpfr-4.2.2/mpfr.html},
+  2025.
 
 \end{thebibliography}
